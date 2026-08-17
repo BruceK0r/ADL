@@ -13,17 +13,25 @@ import torch
 from torch import nn
 from torch.utils.data import DataLoader
 
-from adl_repro.ranking import DomainRankingAccumulator, macro_average_observed
+from adl_repro.ranking import (
+    DomainRankingAccumulator,
+    macro_average_observed,
+    routing_domain_diagnostics,
+)
 from adl_repro.three_domain_data import (
     ThreeDomainBatchDataset,
     load_item_text_embeddings,
     load_three_domain_metadata,
 )
-from adl_repro.three_domain_models import ThreeDomainADL, ThreeDomainModelConfig
+from adl_repro.three_domain_models import (
+    ThreeDomainModelConfig,
+    build_three_domain_model,
+)
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Train ADL on 3-domain or Electronic+Phone data")
+    parser = argparse.ArgumentParser(description="Train ADL or SharedBottom on multi-domain data")
+    parser.add_argument("--model", choices=("adl", "sharedbottom"), default="adl")
     parser.add_argument("--data-dir", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--epochs", type=int, default=10)
@@ -43,6 +51,9 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="L2-normalize routing features (ablation; literal dot-product routing is the default)",
     )
+    parser.add_argument("--without-qwen", action="store_true")
+    parser.add_argument("--without-cross-domain-history", action="store_true")
+    parser.add_argument("--router-with-domain", action="store_true")
     parser.add_argument("--seed", type=int, default=2023)
     parser.add_argument("--device", default="cuda:0" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--num-workers", type=int, default=0)
@@ -83,7 +94,7 @@ def labels_for(candidates: torch.Tensor) -> torch.Tensor:
 
 
 def train_epoch(
-    model: ThreeDomainADL,
+    model: nn.Module,
     loader: DataLoader,
     optimizer: torch.optim.Optimizer,
     scaler: torch.cuda.amp.GradScaler,
@@ -94,7 +105,10 @@ def train_epoch(
     model.train()
     total_loss = 0.0
     examples = 0
-    cluster_counts = np.zeros(model.config.cluster_num, dtype=np.int64)
+    has_router = hasattr(model, "router")
+    cluster_counts = (
+        np.zeros(model.config.cluster_num, dtype=np.int64) if has_router else None
+    )
     entropy_sum = 0.0
     started = time.perf_counter()
     for step, raw_batch in enumerate(loader):
@@ -115,8 +129,10 @@ def train_epoch(
         count = int(labels.shape[0])
         total_loss += float(loss.detach()) * count
         examples += count
-        cluster_counts += output.diagnostics["cluster_counts"].detach().cpu().numpy()
-        entropy_sum += float(output.diagnostics["mean_routing_entropy"]) * count
+        if has_router:
+            assert cluster_counts is not None
+            cluster_counts += output.diagnostics["cluster_counts"].detach().cpu().numpy()
+            entropy_sum += float(output.diagnostics["mean_routing_entropy"]) * count
         if max_steps is not None and step + 1 >= max_steps:
             break
     if examples == 0:
@@ -125,14 +141,14 @@ def train_epoch(
         "loss": total_loss / examples,
         "contexts": examples,
         "seconds": time.perf_counter() - started,
-        "cluster_counts": cluster_counts.tolist(),
-        "mean_routing_entropy": entropy_sum / examples,
+        "cluster_counts": cluster_counts.tolist() if cluster_counts is not None else None,
+        "mean_routing_entropy": entropy_sum / examples if has_router else None,
     }
 
 
 @torch.no_grad()
 def evaluate(
-    model: ThreeDomainADL,
+    model: nn.Module,
     loader: DataLoader,
     device: torch.device,
     amp: bool,
@@ -143,14 +159,22 @@ def evaluate(
     metric = DomainRankingAccumulator(domain_names)
     total_loss = 0.0
     examples = 0
-    cluster_counts = np.zeros(model.config.cluster_num, dtype=np.int64)
+    has_router = hasattr(model, "router")
+    cluster_counts = (
+        np.zeros(model.config.cluster_num, dtype=np.int64) if has_router else None
+    )
+    domain_cluster_counts = (
+        np.zeros((len(domain_names), model.config.cluster_num), dtype=np.int64)
+        if has_router
+        else None
+    )
     entropy_sum = 0.0
     started = time.perf_counter()
     for step, raw_batch in enumerate(loader):
         batch = move_batch(raw_batch, device)
         labels = labels_for(batch["candidates"])
         with torch.autocast(device_type=device.type, enabled=amp):
-            output = model(batch)
+            output = model(batch, return_routing=has_router)
             positive_weight = float(batch["candidates"].shape[1] - 1)
             weights = torch.ones_like(labels)
             weights[:, 0] = positive_weight
@@ -163,23 +187,36 @@ def evaluate(
         metric.update(
             batch["domain"].cpu().numpy(), output.logits.float().cpu().numpy()
         )
-        cluster_counts += output.diagnostics["cluster_counts"].cpu().numpy()
-        entropy_sum += float(output.diagnostics["mean_routing_entropy"]) * count
+        if has_router:
+            assert cluster_counts is not None and domain_cluster_counts is not None
+            cluster_counts += output.diagnostics["cluster_counts"].cpu().numpy()
+            routes = output.diagnostics["route"].reshape(batch["candidates"].shape).cpu().numpy()
+            repeated_domains = np.repeat(
+                batch["domain"].cpu().numpy(), batch["candidates"].shape[1]
+            )
+            flat = repeated_domains * model.config.cluster_num + routes.reshape(-1)
+            domain_cluster_counts += np.bincount(
+                flat, minlength=len(domain_names) * model.config.cluster_num
+            ).reshape(len(domain_names), model.config.cluster_num)
+            entropy_sum += float(output.diagnostics["mean_routing_entropy"]) * count
         if max_steps is not None and step + 1 >= max_steps:
             break
     if examples == 0:
         raise RuntimeError("Evaluation loader produced no contexts")
     ranking = metric.compute()
     macro_ndcg10 = macro_average_observed(ranking, "NDCG@10")
-    return {
+    result = {
         "loss": total_loss / examples,
         "contexts": examples,
         "seconds": time.perf_counter() - started,
         "macro_NDCG@10": macro_ndcg10,
         "ranking": ranking,
-        "cluster_counts": cluster_counts.tolist(),
-        "mean_routing_entropy": entropy_sum / examples,
+        "cluster_counts": cluster_counts.tolist() if cluster_counts is not None else None,
+        "mean_routing_entropy": entropy_sum / examples if has_router else None,
     }
+    if domain_cluster_counts is not None:
+        result.update(routing_domain_diagnostics(domain_cluster_counts, domain_names))
+    return result
 
 
 def main() -> None:
@@ -217,14 +254,18 @@ def main() -> None:
         beta=args.beta,
         routing_iterations=args.routing_iterations,
         normalize_router_input=args.normalize_router_input,
+        use_qwen=not args.without_qwen,
+        use_cross_domain_history=not args.without_cross_domain_history,
+        router_use_domain=args.router_with_domain,
     )
-    model = ThreeDomainADL(
+    model = build_three_domain_model(
+        args.model,
         config, item_text, item_domains, train_seen_users, train_seen_items
     ).to(device)
     del item_text, item_domains, train_seen_users, train_seen_items
     optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
     scaler = torch.cuda.amp.GradScaler(enabled=amp)
-    checkpoint_path = args.output_dir / "adl.last.pth"
+    checkpoint_path = args.output_dir / f"{args.model}.last.pth"
     history = []
     best_score = -float("inf")
     best_state = None
@@ -234,6 +275,7 @@ def main() -> None:
         key: list(value) if isinstance(value, tuple) else value for key, value in vars(config).items()
     }
     checkpoint_metadata = {
+        "model": args.model,
         "data_domains": metadata["domains"],
         "data_seed": metadata["seed"],
         "config": serialized_config,
@@ -310,6 +352,7 @@ def main() -> None:
     )
     selected = max(history, key=lambda row: row["validation"]["macro_NDCG@10"])
     results = {
+        "model": args.model,
         "experiment_domains": metadata["domain_names"],
         "sampled_ranking_protocol": {
             "positive_candidates": 1,
@@ -342,7 +385,7 @@ def main() -> None:
             "metadata": metadata,
             "state_dict": best_state,
         },
-        args.output_dir / "adl.best.pth",
+        args.output_dir / f"{args.model}.best.pth",
     )
     print(json.dumps(results, ensure_ascii=False, indent=2), flush=True)
 
