@@ -24,7 +24,9 @@ class ThreeDomainModelConfig:
     cluster_num: int = 3
     beta: float = 0.9
     routing_iterations: int = 3
-    normalize_router_input: bool = True
+    # Algorithm 1 in ADL routes with c_k dot e_i. Normalization remains an
+    # explicit ablation because it can collapse hard assignments on Amazon.
+    normalize_router_input: bool = False
 
 
 class ThreeDomainFeatureEncoder(nn.Module):

@@ -13,7 +13,7 @@ import torch
 from torch import nn
 from torch.utils.data import DataLoader
 
-from adl_repro.ranking import DomainRankingAccumulator
+from adl_repro.ranking import DomainRankingAccumulator, macro_average_observed
 from adl_repro.three_domain_data import (
     ThreeDomainBatchDataset,
     load_item_text_embeddings,
@@ -38,7 +38,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--clusters", type=int, default=3)
     parser.add_argument("--beta", type=float, default=0.9)
     parser.add_argument("--routing-iterations", type=int, default=3)
-    parser.add_argument("--no-normalize-router-input", action="store_true")
+    parser.add_argument(
+        "--normalize-router-input",
+        action="store_true",
+        help="L2-normalize routing features (ablation; literal dot-product routing is the default)",
+    )
     parser.add_argument("--seed", type=int, default=2023)
     parser.add_argument("--device", default="cuda:0" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--num-workers", type=int, default=0)
@@ -166,7 +170,7 @@ def evaluate(
     if examples == 0:
         raise RuntimeError("Evaluation loader produced no contexts")
     ranking = metric.compute()
-    macro_ndcg10 = float(np.mean([values["NDCG@10"] for values in ranking.values()]))
+    macro_ndcg10 = macro_average_observed(ranking, "NDCG@10")
     return {
         "loss": total_loss / examples,
         "contexts": examples,
@@ -212,7 +216,7 @@ def main() -> None:
         cluster_num=args.clusters,
         beta=args.beta,
         routing_iterations=args.routing_iterations,
-        normalize_router_input=not args.no_normalize_router_input,
+        normalize_router_input=args.normalize_router_input,
     )
     model = ThreeDomainADL(
         config, item_text, item_domains, train_seen_users, train_seen_items

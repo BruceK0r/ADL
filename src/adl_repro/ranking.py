@@ -50,3 +50,15 @@ class DomainRankingAccumulator:
             result[name] = values
         return result
 
+
+def macro_average_observed(
+    ranking: dict[str, dict[str, float | int]], metric: str
+) -> float:
+    values = [
+        float(domain_values[metric])
+        for domain_values in ranking.values()
+        if int(domain_values["examples"]) > 0
+    ]
+    if not values:
+        raise RuntimeError("Ranking result contains no observed domains")
+    return float(np.mean(values))

@@ -87,18 +87,20 @@ history pools derived only from earlier items.
 
 The paper settings retained here are five hidden layers, three routing iterations,
 EWMA `beta=0.9`, Adam, and learning rate `1e-3`. The classifier sees domain identity,
-while the DLM routing representation excludes the explicit domain embedding.
+while the DLM routing representation excludes the explicit domain embedding. Routing
+uses the paper's literal `center dot representation` score by default. Pass
+`--normalize-router-input` only for the cosine-style ablation.
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python scripts/run_3domain_experiment.py \
   --data-dir data/processed/amazon_3domains \
-  --output-dir outputs/amazon_3domains_seed2023 \
+  --output-dir outputs/amazon_3domains_dot_seed2023 \
   --clusters 3 --epochs 10 --patience 2 \
   --batch-size 2048 --learning-rate 0.001 --seed 2023
 
 CUDA_VISIBLE_DEVICES=1 python scripts/run_3domain_experiment.py \
   --data-dir data/processed/amazon_ele_phone \
-  --output-dir outputs/amazon_ele_phone_seed2023 \
+  --output-dir outputs/amazon_ele_phone_dot_seed2023 \
   --clusters 3 --epochs 10 --patience 2 \
   --batch-size 2048 --learning-rate 0.001 --seed 2023
 ```
@@ -108,8 +110,8 @@ Each output directory contains a resumable checkpoint, selected checkpoint,
 
 ```bash
 python scripts/summarize_3domain_results.py \
-  --three-domain outputs/amazon_3domains_seed2023/results.json \
-  --two-domain outputs/amazon_ele_phone_seed2023/results.json \
+  --three-domain outputs/amazon_3domains_dot_seed2023/results.json \
+  --two-domain outputs/amazon_ele_phone_dot_seed2023/results.json \
   --output-json outputs/amazon_adl_metrics.json \
   --output-csv outputs/amazon_adl_metrics.csv
 ```

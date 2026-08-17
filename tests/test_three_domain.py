@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 
-from adl_repro.ranking import DomainRankingAccumulator
+from adl_repro.ranking import DomainRankingAccumulator, macro_average_observed
 from adl_repro.three_domain_models import ThreeDomainADL, ThreeDomainModelConfig
 
 
@@ -30,6 +30,14 @@ def test_domain_ranking_metrics_cover_requested_cutoffs():
         "NDCG@20",
         "NDCG@50",
     }
+
+
+def test_macro_metric_ignores_domains_absent_from_debug_subset():
+    ranking = {
+        "Electronic": {"examples": 10, "NDCG@10": 0.25},
+        "Phone": {"examples": 0, "NDCG@10": float("nan")},
+    }
+    assert macro_average_observed(ranking, "NDCG@10") == 0.25
 
 
 def test_three_domain_adl_forward_and_eval_center_freeze():
@@ -69,4 +77,3 @@ def test_three_domain_adl_forward_and_eval_center_freeze():
         repeated = model(batch)
     assert repeated.logits.shape == (2, 3)
     assert torch.equal(model.router.centers, trained_centers)
-
