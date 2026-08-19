@@ -1,0 +1,224 @@
+{
+  "experiment_domains": [
+    "Beauty",
+    "Electronic",
+    "Phone"
+  ],
+  "sampled_ranking_protocol": {
+    "positive_candidates": 1,
+    "negative_candidates": 100,
+    "negative_sampling": "50% uniform + 50% popularity^0.75; fixed per user-domain"
+  },
+  "selected_epoch": 2,
+  "validation_at_selected_epoch": {
+    "loss": 1.9570624982833862,
+    "contexts": 60000,
+    "seconds": 1.3548831306397915,
+    "macro_NDCG@10": 0.14349811775230153,
+    "ranking": {
+      "Beauty": {
+        "examples": 20000,
+        "Recall@1": 0.04905,
+        "NDCG@1": 0.04905,
+        "Recall@5": 0.1785,
+        "NDCG@5": 0.11335006420989371,
+        "Recall@10": 0.2895,
+        "NDCG@10": 0.14895864582975557,
+        "Recall@20": 0.4645,
+        "NDCG@20": 0.19286369076248822,
+        "Recall@50": 0.814,
+        "NDCG@50": 0.2620145113075524
+      },
+      "Electronic": {
+        "examples": 20000,
+        "Recall@1": 0.04865,
+        "NDCG@1": 0.04865,
+        "Recall@5": 0.1847,
+        "NDCG@5": 0.11653290400843694,
+        "Recall@10": 0.31035,
+        "NDCG@10": 0.15674704491484173,
+        "Recall@20": 0.4973,
+        "NDCG@20": 0.20370204580459875,
+        "Recall@50": 0.81045,
+        "NDCG@50": 0.2658636527924833
+      },
+      "Phone": {
+        "examples": 20000,
+        "Recall@1": 0.03165,
+        "NDCG@1": 0.03165,
+        "Recall@5": 0.14065,
+        "NDCG@5": 0.0848902150913552,
+        "Recall@10": 0.2655,
+        "NDCG@10": 0.12478866251230732,
+        "Recall@20": 0.4801,
+        "NDCG@20": 0.17861789943574424,
+        "Recall@50": 0.84625,
+        "NDCG@50": 0.25158455465645163
+      }
+    },
+    "cluster_counts": [
+      1374166,
+      1789980,
+      2895854
+    ],
+    "mean_routing_entropy": 0.8814180296262105
+  },
+  "test": {
+    "loss": 1.8980191345214843,
+    "contexts": 60000,
+    "seconds": 1.9542302526533604,
+    "macro_NDCG@10": 0.1326605435965041,
+    "ranking": {
+      "Beauty": {
+        "examples": 20000,
+        "Recall@1": 0.0486,
+        "NDCG@1": 0.0486,
+        "Recall@5": 0.1863,
+        "NDCG@5": 0.11771628602156052,
+        "Recall@10": 0.29195,
+        "NDCG@10": 0.15170190406611045,
+        "Recall@20": 0.4564,
+        "NDCG@20": 0.19293747523034205,
+        "Recall@50": 0.82245,
+        "NDCG@50": 0.2651802005202972
+      },
+      "Electronic": {
+        "examples": 20000,
+        "Recall@1": 0.04345,
+        "NDCG@1": 0.04345,
+        "Recall@5": 0.174,
+        "NDCG@5": 0.10814087473307811,
+        "Recall@10": 0.2965,
+        "NDCG@10": 0.1474332681174353,
+        "Recall@20": 0.4823,
+        "NDCG@20": 0.19403334229309221,
+        "Recall@50": 0.8133,
+        "NDCG@50": 0.25972413831612634
+      },
+      "Phone": {
+        "examples": 20000,
+        "Recall@1": 0.0207,
+        "NDCG@1": 0.0207,
+        "Recall@5": 0.1062,
+        "NDCG@5": 0.06191321093348506,
+        "Recall@10": 0.22225,
+        "NDCG@10": 0.09884645860596654,
+        "Recall@20": 0.46065,
+        "NDCG@20": 0.15851216843782104,
+        "Recall@50": 0.8491,
+        "NDCG@50": 0.23592777185471833
+      }
+    },
+    "cluster_counts": [
+      1193300,
+      1975598,
+      2891102
+    ],
+    "mean_routing_entropy": 0.8783736587842306,
+    "domain_cluster_counts": {
+      "Beauty": [
+        387443,
+        1628637,
+        3920
+      ],
+      "Electronic": [
+        528579,
+        101118,
+        1390303
+      ],
+      "Phone": [
+        277278,
+        245843,
+        1496879
+      ]
+    },
+    "domain_cluster_fractions": {
+      "Beauty": [
+        0.19180346534653464,
+        0.8062559405940594,
+        0.0019405940594059406
+      ],
+      "Electronic": [
+        0.26167277227722774,
+        0.05005841584158416,
+        0.6882688118811882
+      ],
+      "Phone": [
+        0.13726633663366336,
+        0.12170445544554455,
+        0.7410292079207921
+      ]
+    },
+    "cluster_domain_fractions": [
+      [
+        0.3246819743568256,
+        0.8243767203651755,
+        0.001355884365200536
+      ],
+      [
+        0.4429556691527696,
+        0.051183489758544,
+        0.4808903317835206
+      ],
+      [
+        0.23236235649040476,
+        0.1244397898762805,
+        0.5177537838512789
+      ]
+    ],
+    "domain_cluster_nmi": 0.34454791552881303
+  },
+  "parameters_excluding_frozen_text_table": 23066648,
+  "config": {
+    "user_num": 456697,
+    "item_num": 208565,
+    "domain_num": 3,
+    "time_dim": 8,
+    "user_dim": 32,
+    "item_dim": 32,
+    "domain_dim": 8,
+    "text_projection_dim": 128,
+    "hidden_dims": [
+      512,
+      256,
+      128,
+      64,
+      32
+    ],
+    "cluster_num": 3,
+    "beta": 0.9,
+    "routing_iterations": 3,
+    "normalize_router_input": false
+  },
+  "arguments": {
+    "data_dir": "data/processed/amazon_3domains",
+    "output_dir": "outputs/amazon_3domains_dot_seed2023",
+    "epochs": 10,
+    "patience": 2,
+    "batch_size": 2048,
+    "learning_rate": 0.001,
+    "user_dim": 32,
+    "item_dim": 32,
+    "domain_dim": 8,
+    "text_projection_dim": 128,
+    "hidden_dims": "512,256,128,64,32",
+    "clusters": 3,
+    "beta": 0.9,
+    "routing_iterations": 3,
+    "no_normalize_router_input": true,
+    "seed": 2023,
+    "device": "cuda:0",
+    "num_workers": 0,
+    "no_amp": false,
+    "max_steps": null,
+    "resume": false
+  },
+  "runtime": {
+    "python": "3.11.16",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "device": "cuda:0",
+    "device_name": "NVIDIA RTX A6000"
+  },
+  "routing_diagnostics_recomputed": true
+}

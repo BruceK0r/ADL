@@ -1,0 +1,140 @@
+[
+  {
+    "epoch": 1,
+    "train": {
+      "loss": 0.8446973112082747,
+      "contexts": 1777346,
+      "seconds": 25.418416023254395,
+      "cluster_counts": null,
+      "mean_routing_entropy": null
+    },
+    "validation": {
+      "loss": 1.3959307317733765,
+      "contexts": 40000,
+      "seconds": 1.269347209483385,
+      "macro_NDCG@10": 0.16296530780882074,
+      "ranking": {
+        "Electronic": {
+          "examples": 20000,
+          "Recall@1": 0.0622,
+          "NDCG@1": 0.0622,
+          "Recall@5": 0.22095,
+          "NDCG@5": 0.14241733145228394,
+          "Recall@10": 0.35345,
+          "NDCG@10": 0.18497714367437382,
+          "Recall@20": 0.53335,
+          "NDCG@20": 0.23018337722560858,
+          "Recall@50": 0.83215,
+          "NDCG@50": 0.2896081890505599
+        },
+        "Phone": {
+          "examples": 20000,
+          "Recall@1": 0.0374,
+          "NDCG@1": 0.0374,
+          "Recall@5": 0.1595,
+          "NDCG@5": 0.09695141342638257,
+          "Recall@10": 0.2971,
+          "NDCG@10": 0.14095347194326763,
+          "Recall@20": 0.5107,
+          "NDCG@20": 0.19466247048460186,
+          "Recall@50": 0.85195,
+          "NDCG@50": 0.26271158620606533
+        }
+      },
+      "cluster_counts": null,
+      "mean_routing_entropy": null
+    }
+  },
+  {
+    "epoch": 2,
+    "train": {
+      "loss": 0.634765604226342,
+      "contexts": 1777346,
+      "seconds": 23.591355971992016,
+      "cluster_counts": null,
+      "mean_routing_entropy": null
+    },
+    "validation": {
+      "loss": 1.5805786558151245,
+      "contexts": 40000,
+      "seconds": 1.0689937695860863,
+      "macro_NDCG@10": 0.15928404020609616,
+      "ranking": {
+        "Electronic": {
+          "examples": 20000,
+          "Recall@1": 0.05795,
+          "NDCG@1": 0.05795,
+          "Recall@5": 0.20745,
+          "NDCG@5": 0.1327977288881654,
+          "Recall@10": 0.3353,
+          "NDCG@10": 0.17383152818213352,
+          "Recall@20": 0.51395,
+          "NDCG@20": 0.21880659165916996,
+          "Recall@50": 0.81725,
+          "NDCG@50": 0.27901833279568866
+        },
+        "Phone": {
+          "examples": 20000,
+          "Recall@1": 0.0349,
+          "NDCG@1": 0.0349,
+          "Recall@5": 0.16745,
+          "NDCG@5": 0.10003400924051498,
+          "Recall@10": 0.30675,
+          "NDCG@10": 0.1447365522300588,
+          "Recall@20": 0.5175,
+          "NDCG@20": 0.19748764466994168,
+          "Recall@50": 0.8554,
+          "NDCG@50": 0.2647340525692432
+        }
+      },
+      "cluster_counts": null,
+      "mean_routing_entropy": null
+    }
+  },
+  {
+    "epoch": 3,
+    "train": {
+      "loss": 0.4075983020839247,
+      "contexts": 1777346,
+      "seconds": 25.432727549225092,
+      "cluster_counts": null,
+      "mean_routing_entropy": null
+    },
+    "validation": {
+      "loss": 2.4230609062194826,
+      "contexts": 40000,
+      "seconds": 1.1309892162680626,
+      "macro_NDCG@10": 0.13413294535387432,
+      "ranking": {
+        "Electronic": {
+          "examples": 20000,
+          "Recall@1": 0.04615,
+          "NDCG@1": 0.04615,
+          "Recall@5": 0.1778,
+          "NDCG@5": 0.11149304149187923,
+          "Recall@10": 0.2996,
+          "NDCG@10": 0.15055258960916507,
+          "Recall@20": 0.4816,
+          "NDCG@20": 0.19626707832346965,
+          "Recall@50": 0.8004,
+          "NDCG@50": 0.2593759820416979
+        },
+        "Phone": {
+          "examples": 20000,
+          "Recall@1": 0.02955,
+          "NDCG@1": 0.02955,
+          "Recall@5": 0.1318,
+          "NDCG@5": 0.07923649583043813,
+          "Recall@10": 0.25215,
+          "NDCG@10": 0.1177133010985836,
+          "Recall@20": 0.4543,
+          "NDCG@20": 0.16835646282943206,
+          "Recall@50": 0.84485,
+          "NDCG@50": 0.24596202031749126
+        }
+      },
+      "cluster_counts": null,
+      "mean_routing_entropy": null
+    }
+  }
+]

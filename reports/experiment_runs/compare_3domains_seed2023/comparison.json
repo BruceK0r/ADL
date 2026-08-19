@@ -1,0 +1,1113 @@
+{
+  "sampled_ranking_protocol": {
+    "positive_candidates": 1,
+    "negative_candidates": 100,
+    "negative_sampling": "50% uniform + 50% popularity^0.75; fixed per user-domain"
+  },
+  "experiments": [
+    {
+      "experiment": "SharedBottom",
+      "directory": "sharedbottom",
+      "model": "sharedbottom",
+      "selected_epoch": 2,
+      "validation_macro_NDCG@10": 0.15342161040605679,
+      "test_macro_NDCG@10": 0.14664216899913357,
+      "parameters_excluding_frozen_text_table": 21831608,
+      "config": {
+        "user_num": 456697,
+        "item_num": 208565,
+        "domain_num": 3,
+        "time_dim": 8,
+        "user_dim": 32,
+        "item_dim": 32,
+        "domain_dim": 8,
+        "text_projection_dim": 128,
+        "hidden_dims": [
+          512,
+          256,
+          128,
+          64,
+          32
+        ],
+        "cluster_num": 1,
+        "beta": 0.9,
+        "routing_iterations": 3,
+        "normalize_router_input": false,
+        "use_qwen": true,
+        "use_cross_domain_history": true,
+        "router_use_domain": false
+      },
+      "cluster_counts": null,
+      "mean_routing_entropy": null,
+      "domain_cluster_nmi": null,
+      "domain_cluster_counts": null,
+      "domain_cluster_fractions": null
+    },
+    {
+      "experiment": "ADL K=1",
+      "directory": "adl_k1",
+      "model": "adl",
+      "selected_epoch": 1,
+      "validation_macro_NDCG@10": 0.14606424117566186,
+      "test_macro_NDCG@10": 0.15221911207054423,
+      "parameters_excluding_frozen_text_table": 22243288,
+      "config": {
+        "user_num": 456697,
+        "item_num": 208565,
+        "domain_num": 3,
+        "time_dim": 8,
+        "user_dim": 32,
+        "item_dim": 32,
+        "domain_dim": 8,
+        "text_projection_dim": 128,
+        "hidden_dims": [
+          512,
+          256,
+          128,
+          64,
+          32
+        ],
+        "cluster_num": 1,
+        "beta": 0.9,
+        "routing_iterations": 3,
+        "normalize_router_input": false,
+        "use_qwen": true,
+        "use_cross_domain_history": true,
+        "router_use_domain": false
+      },
+      "cluster_counts": [
+        6060000
+      ],
+      "mean_routing_entropy": 0.0,
+      "domain_cluster_nmi": 0.0,
+      "domain_cluster_counts": {
+        "Beauty": [
+          2020000
+        ],
+        "Electronic": [
+          2020000
+        ],
+        "Phone": [
+          2020000
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Beauty": [
+          1.0
+        ],
+        "Electronic": [
+          1.0
+        ],
+        "Phone": [
+          1.0
+        ]
+      }
+    },
+    {
+      "experiment": "ADL K=3",
+      "directory": "adl_k3",
+      "model": "adl",
+      "selected_epoch": 2,
+      "validation_macro_NDCG@10": 0.14349811775230153,
+      "test_macro_NDCG@10": 0.1326605435965041,
+      "parameters_excluding_frozen_text_table": 23066648,
+      "config": {
+        "user_num": 456697,
+        "item_num": 208565,
+        "domain_num": 3,
+        "time_dim": 8,
+        "user_dim": 32,
+        "item_dim": 32,
+        "domain_dim": 8,
+        "text_projection_dim": 128,
+        "hidden_dims": [
+          512,
+          256,
+          128,
+          64,
+          32
+        ],
+        "cluster_num": 3,
+        "beta": 0.9,
+        "routing_iterations": 3,
+        "normalize_router_input": false
+      },
+      "cluster_counts": [
+        1193300,
+        1975598,
+        2891102
+      ],
+      "mean_routing_entropy": 0.8783736587842306,
+      "domain_cluster_nmi": 0.34454791552881303,
+      "domain_cluster_counts": {
+        "Beauty": [
+          387443,
+          1628637,
+          3920
+        ],
+        "Electronic": [
+          528579,
+          101118,
+          1390303
+        ],
+        "Phone": [
+          277278,
+          245843,
+          1496879
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Beauty": [
+          0.19180346534653464,
+          0.8062559405940594,
+          0.0019405940594059406
+        ],
+        "Electronic": [
+          0.26167277227722774,
+          0.05005841584158416,
+          0.6882688118811882
+        ],
+        "Phone": [
+          0.13726633663366336,
+          0.12170445544554455,
+          0.7410292079207921
+        ]
+      }
+    },
+    {
+      "experiment": "ADL K=5",
+      "directory": "adl_k5",
+      "model": "adl",
+      "selected_epoch": 2,
+      "validation_macro_NDCG@10": 0.14914444119573914,
+      "test_macro_NDCG@10": 0.13918798481183572,
+      "parameters_excluding_frozen_text_table": 23890008,
+      "config": {
+        "user_num": 456697,
+        "item_num": 208565,
+        "domain_num": 3,
+        "time_dim": 8,
+        "user_dim": 32,
+        "item_dim": 32,
+        "domain_dim": 8,
+        "text_projection_dim": 128,
+        "hidden_dims": [
+          512,
+          256,
+          128,
+          64,
+          32
+        ],
+        "cluster_num": 5,
+        "beta": 0.9,
+        "routing_iterations": 3,
+        "normalize_router_input": false,
+        "use_qwen": true,
+        "use_cross_domain_history": true,
+        "router_use_domain": false
+      },
+      "cluster_counts": [
+        1132657,
+        479173,
+        1606683,
+        269744,
+        2571743
+      ],
+      "mean_routing_entropy": 1.3358629035949707,
+      "domain_cluster_nmi": 0.48988495133031984,
+      "domain_cluster_counts": {
+        "Beauty": [
+          154,
+          419194,
+          1597708,
+          6,
+          2938
+        ],
+        "Electronic": [
+          668790,
+          9245,
+          1411,
+          143357,
+          1197197
+        ],
+        "Phone": [
+          463713,
+          50734,
+          7564,
+          126381,
+          1371608
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Beauty": [
+          7.623762376237623e-05,
+          0.20752178217821782,
+          0.7909445544554455,
+          2.9702970297029703e-06,
+          0.0014544554455445545
+        ],
+        "Electronic": [
+          0.3310841584158416,
+          0.0045767326732673265,
+          0.0006985148514851485,
+          0.07096881188118812,
+          0.5926717821782178
+        ],
+        "Phone": [
+          0.2295608910891089,
+          0.025115841584158416,
+          0.0037445544554455448,
+          0.06256485148514851,
+          0.6790138613861386
+        ]
+      }
+    },
+    {
+      "experiment": "ADL K=7",
+      "directory": "adl_k7",
+      "model": "adl",
+      "selected_epoch": 2,
+      "validation_macro_NDCG@10": 0.14792574032820163,
+      "test_macro_NDCG@10": 0.13489317118429453,
+      "parameters_excluding_frozen_text_table": 24713368,
+      "config": {
+        "user_num": 456697,
+        "item_num": 208565,
+        "domain_num": 3,
+        "time_dim": 8,
+        "user_dim": 32,
+        "item_dim": 32,
+        "domain_dim": 8,
+        "text_projection_dim": 128,
+        "hidden_dims": [
+          512,
+          256,
+          128,
+          64,
+          32
+        ],
+        "cluster_num": 7,
+        "beta": 0.9,
+        "routing_iterations": 3,
+        "normalize_router_input": false,
+        "use_qwen": true,
+        "use_cross_domain_history": true,
+        "router_use_domain": false
+      },
+      "cluster_counts": [
+        2052945,
+        1917844,
+        22862,
+        1216405,
+        601709,
+        116770,
+        131465
+      ],
+      "mean_routing_entropy": 1.7056989879926046,
+      "domain_cluster_nmi": 0.26653462536446865,
+      "domain_cluster_counts": {
+        "Beauty": [
+          792,
+          1573845,
+          19515,
+          240085,
+          147910,
+          13229,
+          24624
+        ],
+        "Electronic": [
+          1137297,
+          30745,
+          240,
+          491795,
+          259804,
+          49709,
+          50410
+        ],
+        "Phone": [
+          914856,
+          313254,
+          3107,
+          484525,
+          193995,
+          53832,
+          56431
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Beauty": [
+          0.00039207920792079206,
+          0.7791311881188119,
+          0.00966089108910891,
+          0.1188539603960396,
+          0.07322277227722772,
+          0.006549009900990099,
+          0.01219009900990099
+        ],
+        "Electronic": [
+          0.5630183168316831,
+          0.01522029702970297,
+          0.00011881188118811881,
+          0.2434628712871287,
+          0.12861584158415842,
+          0.024608415841584158,
+          0.024955445544554457
+        ],
+        "Phone": [
+          0.4528990099009901,
+          0.15507623762376238,
+          0.0015381188118811881,
+          0.2398638613861386,
+          0.09603712871287129,
+          0.026649504950495048,
+          0.027936138613861385
+        ]
+      }
+    },
+    {
+      "experiment": "ADL K=9",
+      "directory": "adl_k9",
+      "model": "adl",
+      "selected_epoch": 1,
+      "validation_macro_NDCG@10": 0.1489165956352689,
+      "test_macro_NDCG@10": 0.1421523542646275,
+      "parameters_excluding_frozen_text_table": 25536728,
+      "config": {
+        "user_num": 456697,
+        "item_num": 208565,
+        "domain_num": 3,
+        "time_dim": 8,
+        "user_dim": 32,
+        "item_dim": 32,
+        "domain_dim": 8,
+        "text_projection_dim": 128,
+        "hidden_dims": [
+          512,
+          256,
+          128,
+          64,
+          32
+        ],
+        "cluster_num": 9,
+        "beta": 0.9,
+        "routing_iterations": 3,
+        "normalize_router_input": false,
+        "use_qwen": true,
+        "use_cross_domain_history": true,
+        "router_use_domain": false
+      },
+      "cluster_counts": [
+        5086,
+        41538,
+        553400,
+        2178530,
+        473111,
+        716960,
+        1151286,
+        1709,
+        938380
+      ],
+      "mean_routing_entropy": 1.9595335714975992,
+      "domain_cluster_nmi": 0.4032925535334568,
+      "domain_cluster_counts": {
+        "Beauty": [
+          5,
+          24,
+          505567,
+          2406,
+          438357,
+          313,
+          1072273,
+          0,
+          1055
+        ],
+        "Electronic": [
+          2637,
+          21752,
+          13218,
+          1077989,
+          6924,
+          477901,
+          20659,
+          709,
+          398211
+        ],
+        "Phone": [
+          2444,
+          19762,
+          34615,
+          1098135,
+          27830,
+          238746,
+          58354,
+          1000,
+          539114
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Beauty": [
+          2.4752475247524753e-06,
+          1.1881188118811881e-05,
+          0.25028069306930695,
+          0.0011910891089108911,
+          0.21700841584158415,
+          0.00015495049504950494,
+          0.5308282178217821,
+          0.0,
+          0.0005222772277227723
+        ],
+        "Electronic": [
+          0.0013054455445544555,
+          0.010768316831683169,
+          0.006543564356435643,
+          0.5336579207920792,
+          0.0034277227722772276,
+          0.23658465346534654,
+          0.010227227722772278,
+          0.000350990099009901,
+          0.1971341584158416
+        ],
+        "Phone": [
+          0.0012099009900990098,
+          0.009783168316831682,
+          0.017136138613861387,
+          0.5436311881188118,
+          0.013777227722772277,
+          0.1181910891089109,
+          0.028888118811881188,
+          0.0004950495049504951,
+          0.2668881188118812
+        ]
+      }
+    },
+    {
+      "experiment": "ADL without Qwen",
+      "directory": "adl_without_qwen",
+      "model": "adl",
+      "selected_epoch": 5,
+      "validation_macro_NDCG@10": 0.10577573391730022,
+      "test_macro_NDCG@10": 0.06697307009764498,
+      "parameters_excluding_frozen_text_table": 22939544,
+      "config": {
+        "user_num": 456697,
+        "item_num": 208565,
+        "domain_num": 3,
+        "time_dim": 8,
+        "user_dim": 32,
+        "item_dim": 32,
+        "domain_dim": 8,
+        "text_projection_dim": 128,
+        "hidden_dims": [
+          512,
+          256,
+          128,
+          64,
+          32
+        ],
+        "cluster_num": 3,
+        "beta": 0.9,
+        "routing_iterations": 3,
+        "normalize_router_input": false,
+        "use_qwen": false,
+        "use_cross_domain_history": true,
+        "router_use_domain": false
+      },
+      "cluster_counts": [
+        1206761,
+        1430751,
+        3422488
+      ],
+      "mean_routing_entropy": 0.41409001479148866,
+      "domain_cluster_nmi": 0.026976496153922187,
+      "domain_cluster_counts": {
+        "Beauty": [
+          370963,
+          571865,
+          1077172
+        ],
+        "Electronic": [
+          464230,
+          627772,
+          927998
+        ],
+        "Phone": [
+          371568,
+          231114,
+          1417318
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Beauty": [
+          0.1836450495049505,
+          0.28310148514851485,
+          0.5332534653465346
+        ],
+        "Electronic": [
+          0.22981683168316833,
+          0.31077821782178217,
+          0.4594049504950495
+        ],
+        "Phone": [
+          0.18394455445544555,
+          0.11441287128712871,
+          0.7016425742574257
+        ]
+      }
+    },
+    {
+      "experiment": "ADL without cross-domain history",
+      "directory": "adl_without_cross_history",
+      "model": "adl",
+      "selected_epoch": 2,
+      "validation_macro_NDCG@10": 0.14419339509104737,
+      "test_macro_NDCG@10": 0.13813341742687493,
+      "parameters_excluding_frozen_text_table": 23066648,
+      "config": {
+        "user_num": 456697,
+        "item_num": 208565,
+        "domain_num": 3,
+        "time_dim": 8,
+        "user_dim": 32,
+        "item_dim": 32,
+        "domain_dim": 8,
+        "text_projection_dim": 128,
+        "hidden_dims": [
+          512,
+          256,
+          128,
+          64,
+          32
+        ],
+        "cluster_num": 3,
+        "beta": 0.9,
+        "routing_iterations": 3,
+        "normalize_router_input": false,
+        "use_qwen": true,
+        "use_cross_domain_history": false,
+        "router_use_domain": false
+      },
+      "cluster_counts": [
+        3438457,
+        2605630,
+        15913
+      ],
+      "mean_routing_entropy": 0.9481379100481669,
+      "domain_cluster_nmi": 0.06042835188149097,
+      "domain_cluster_counts": {
+        "Beauty": [
+          1580361,
+          429688,
+          9951
+        ],
+        "Electronic": [
+          848062,
+          1168462,
+          3476
+        ],
+        "Phone": [
+          1010034,
+          1007480,
+          2486
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Beauty": [
+          0.7823569306930693,
+          0.21271683168316832,
+          0.004926237623762376
+        ],
+        "Electronic": [
+          0.4198326732673267,
+          0.5784465346534653,
+          0.0017207920792079209
+        ],
+        "Phone": [
+          0.5000168316831684,
+          0.49875247524752475,
+          0.0012306930693069308
+        ]
+      }
+    },
+    {
+      "experiment": "ADL router with domain",
+      "directory": "adl_router_with_domain",
+      "model": "adl",
+      "selected_epoch": 2,
+      "validation_macro_NDCG@10": 0.15126822733506953,
+      "test_macro_NDCG@10": 0.141781289972281,
+      "parameters_excluding_frozen_text_table": 23066648,
+      "config": {
+        "user_num": 456697,
+        "item_num": 208565,
+        "domain_num": 3,
+        "time_dim": 8,
+        "user_dim": 32,
+        "item_dim": 32,
+        "domain_dim": 8,
+        "text_projection_dim": 128,
+        "hidden_dims": [
+          512,
+          256,
+          128,
+          64,
+          32
+        ],
+        "cluster_num": 3,
+        "beta": 0.9,
+        "routing_iterations": 3,
+        "normalize_router_input": false,
+        "use_qwen": true,
+        "use_cross_domain_history": true,
+        "router_use_domain": true
+      },
+      "cluster_counts": [
+        2860364,
+        1319459,
+        1880177
+      ],
+      "mean_routing_entropy": 0.7374291432698568,
+      "domain_cluster_nmi": 0.5103348819465435,
+      "domain_cluster_counts": {
+        "Beauty": [
+          3113,
+          147945,
+          1868942
+        ],
+        "Electronic": [
+          1353312,
+          665749,
+          939
+        ],
+        "Phone": [
+          1503939,
+          505765,
+          10296
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Beauty": [
+          0.001541089108910891,
+          0.07324009900990099,
+          0.9252188118811882
+        ],
+        "Electronic": [
+          0.6699564356435643,
+          0.32957871287128715,
+          0.00046485148514851485
+        ],
+        "Phone": [
+          0.7445242574257426,
+          0.2503787128712871,
+          0.005097029702970297
+        ]
+      }
+    }
+  ],
+  "metrics": [
+    {
+      "experiment": "SharedBottom",
+      "domain": "Beauty",
+      "examples": 20000,
+      "Recall@1": 0.05915,
+      "NDCG@1": 0.05915,
+      "Recall@5": 0.19505,
+      "NDCG@5": 0.12756685269323204,
+      "Recall@10": 0.29525,
+      "NDCG@10": 0.15971862675868337,
+      "Recall@20": 0.44685,
+      "NDCG@20": 0.19771377370891688,
+      "Recall@50": 0.8078,
+      "NDCG@50": 0.26890430029004253
+    },
+    {
+      "experiment": "SharedBottom",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.05325,
+      "NDCG@1": 0.05325,
+      "Recall@5": 0.19275,
+      "NDCG@5": 0.12301344921171915,
+      "Recall@10": 0.31475,
+      "NDCG@10": 0.16209906275328576,
+      "Recall@20": 0.5032,
+      "NDCG@20": 0.20941797541326787,
+      "Recall@50": 0.8237,
+      "NDCG@50": 0.2730960204552465
+    },
+    {
+      "experiment": "SharedBottom",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.02385,
+      "NDCG@1": 0.02385,
+      "Recall@5": 0.1331,
+      "NDCG@5": 0.07674174263476631,
+      "Recall@10": 0.26215,
+      "NDCG@10": 0.1181088174854316,
+      "Recall@20": 0.4975,
+      "NDCG@20": 0.17695924780529754,
+      "Recall@50": 0.86835,
+      "NDCG@50": 0.2510083419038504
+    },
+    {
+      "experiment": "ADL K=1",
+      "domain": "Beauty",
+      "examples": 20000,
+      "Recall@1": 0.0549,
+      "NDCG@1": 0.0549,
+      "Recall@5": 0.2044,
+      "NDCG@5": 0.1300852750660911,
+      "Recall@10": 0.31765,
+      "NDCG@10": 0.1663671837627926,
+      "Recall@20": 0.4817,
+      "NDCG@20": 0.20759757165270135,
+      "Recall@50": 0.80165,
+      "NDCG@50": 0.2707786402058929
+    },
+    {
+      "experiment": "ADL K=1",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.05435,
+      "NDCG@1": 0.05435,
+      "Recall@5": 0.2033,
+      "NDCG@5": 0.12860743025011653,
+      "Recall@10": 0.33275,
+      "NDCG@10": 0.17008645769677255,
+      "Recall@20": 0.51995,
+      "NDCG@20": 0.21724840387476793,
+      "Recall@50": 0.82605,
+      "NDCG@50": 0.27810183043382064
+    },
+    {
+      "experiment": "ADL K=1",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.02365,
+      "NDCG@1": 0.02365,
+      "Recall@5": 0.13425,
+      "NDCG@5": 0.0776650333757228,
+      "Recall@10": 0.26715,
+      "NDCG@10": 0.12020369475206756,
+      "Recall@20": 0.4972,
+      "NDCG@20": 0.1779218067681559,
+      "Recall@50": 0.8474,
+      "NDCG@50": 0.24765189632118148
+    },
+    {
+      "experiment": "ADL K=3",
+      "domain": "Beauty",
+      "examples": 20000,
+      "Recall@1": 0.0486,
+      "NDCG@1": 0.0486,
+      "Recall@5": 0.1863,
+      "NDCG@5": 0.11771628602156052,
+      "Recall@10": 0.29195,
+      "NDCG@10": 0.15170190406611045,
+      "Recall@20": 0.4564,
+      "NDCG@20": 0.19293747523034205,
+      "Recall@50": 0.82245,
+      "NDCG@50": 0.2651802005202972
+    },
+    {
+      "experiment": "ADL K=3",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.04345,
+      "NDCG@1": 0.04345,
+      "Recall@5": 0.174,
+      "NDCG@5": 0.10814087473307811,
+      "Recall@10": 0.2965,
+      "NDCG@10": 0.1474332681174353,
+      "Recall@20": 0.4823,
+      "NDCG@20": 0.19403334229309221,
+      "Recall@50": 0.8133,
+      "NDCG@50": 0.25972413831612634
+    },
+    {
+      "experiment": "ADL K=3",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.0207,
+      "NDCG@1": 0.0207,
+      "Recall@5": 0.1062,
+      "NDCG@5": 0.06191321093348506,
+      "Recall@10": 0.22225,
+      "NDCG@10": 0.09884645860596654,
+      "Recall@20": 0.46065,
+      "NDCG@20": 0.15851216843782104,
+      "Recall@50": 0.8491,
+      "NDCG@50": 0.23592777185471833
+    },
+    {
+      "experiment": "ADL K=5",
+      "domain": "Beauty",
+      "examples": 20000,
+      "Recall@1": 0.0475,
+      "NDCG@1": 0.0475,
+      "Recall@5": 0.1801,
+      "NDCG@5": 0.11362932538091214,
+      "Recall@10": 0.27985,
+      "NDCG@10": 0.14567598662635273,
+      "Recall@20": 0.4247,
+      "NDCG@20": 0.18210691916417945,
+      "Recall@50": 0.7941,
+      "NDCG@50": 0.25451911709624103
+    },
+    {
+      "experiment": "ADL K=5",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.04965,
+      "NDCG@1": 0.04965,
+      "Recall@5": 0.18955,
+      "NDCG@5": 0.11955153173187148,
+      "Recall@10": 0.3124,
+      "NDCG@10": 0.15903725023987678,
+      "Recall@20": 0.49995,
+      "NDCG@20": 0.20616542325045556,
+      "Recall@50": 0.81725,
+      "NDCG@50": 0.2692838744511508
+    },
+    {
+      "experiment": "ADL K=5",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.02475,
+      "NDCG@1": 0.02475,
+      "Recall@5": 0.12565,
+      "NDCG@5": 0.07368173537408161,
+      "Recall@10": 0.2483,
+      "NDCG@10": 0.11285071756927766,
+      "Recall@20": 0.47615,
+      "NDCG@20": 0.1700285657880372,
+      "Recall@50": 0.85485,
+      "NDCG@50": 0.24561563632106387
+    },
+    {
+      "experiment": "ADL K=7",
+      "domain": "Beauty",
+      "examples": 20000,
+      "Recall@1": 0.0514,
+      "NDCG@1": 0.0514,
+      "Recall@5": 0.18125,
+      "NDCG@5": 0.11690467444518625,
+      "Recall@10": 0.28045,
+      "NDCG@10": 0.14879391825077304,
+      "Recall@20": 0.4187,
+      "NDCG@20": 0.18337306824168137,
+      "Recall@50": 0.77565,
+      "NDCG@50": 0.2532399089548756
+    },
+    {
+      "experiment": "ADL K=7",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.04925,
+      "NDCG@1": 0.04925,
+      "Recall@5": 0.1774,
+      "NDCG@5": 0.11304677881919777,
+      "Recall@10": 0.29645,
+      "NDCG@10": 0.15123537744617715,
+      "Recall@20": 0.4821,
+      "NDCG@20": 0.1978076636232549,
+      "Recall@50": 0.81755,
+      "NDCG@50": 0.2644669038416089
+    },
+    {
+      "experiment": "ADL K=7",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.0227,
+      "NDCG@1": 0.0227,
+      "Recall@5": 0.11655,
+      "NDCG@5": 0.06847859987243529,
+      "Recall@10": 0.2298,
+      "NDCG@10": 0.1046502178559334,
+      "Recall@20": 0.44445,
+      "NDCG@20": 0.1582997058283517,
+      "Recall@50": 0.85235,
+      "NDCG@50": 0.2395868557597591
+    },
+    {
+      "experiment": "ADL K=9",
+      "domain": "Beauty",
+      "examples": 20000,
+      "Recall@1": 0.05405,
+      "NDCG@1": 0.05405,
+      "Recall@5": 0.18885,
+      "NDCG@5": 0.12163297531885123,
+      "Recall@10": 0.29005,
+      "NDCG@10": 0.15419079422479529,
+      "Recall@20": 0.4305,
+      "NDCG@20": 0.18948500791249834,
+      "Recall@50": 0.7583,
+      "NDCG@50": 0.2536114147931616
+    },
+    {
+      "experiment": "ADL K=9",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.0507,
+      "NDCG@1": 0.0507,
+      "Recall@5": 0.19455,
+      "NDCG@5": 0.12252911620752648,
+      "Recall@10": 0.3168,
+      "NDCG@10": 0.16177616041916518,
+      "Recall@20": 0.5056,
+      "NDCG@20": 0.20911081440103985,
+      "Recall@50": 0.82605,
+      "NDCG@50": 0.27275106651810876
+    },
+    {
+      "experiment": "ADL K=9",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.0243,
+      "NDCG@1": 0.0243,
+      "Recall@5": 0.11975,
+      "NDCG@5": 0.07118173969783874,
+      "Recall@10": 0.2431,
+      "NDCG@10": 0.11049010814992205,
+      "Recall@20": 0.47245,
+      "NDCG@20": 0.16805949233867495,
+      "Recall@50": 0.8496,
+      "NDCG@50": 0.2434464995015815
+    },
+    {
+      "experiment": "ADL without Qwen",
+      "domain": "Beauty",
+      "examples": 20000,
+      "Recall@1": 0.0249,
+      "NDCG@1": 0.0249,
+      "Recall@5": 0.0931,
+      "NDCG@5": 0.05890305503342297,
+      "Recall@10": 0.1516,
+      "NDCG@10": 0.07772927152942521,
+      "Recall@20": 0.24905,
+      "NDCG@20": 0.10213024577590539,
+      "Recall@50": 0.79395,
+      "NDCG@50": 0.2083089556613135
+    },
+    {
+      "experiment": "ADL without Qwen",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.02305,
+      "NDCG@1": 0.02305,
+      "Recall@5": 0.0963,
+      "NDCG@5": 0.05941141713854968,
+      "Recall@10": 0.1575,
+      "NDCG@10": 0.07906153539787678,
+      "Recall@20": 0.28565,
+      "NDCG@20": 0.11086483827297201,
+      "Recall@50": 0.75515,
+      "NDCG@50": 0.20450211920355027
+    },
+    {
+      "experiment": "ADL without Qwen",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.0118,
+      "NDCG@1": 0.0118,
+      "Recall@5": 0.0511,
+      "NDCG@5": 0.03134135739552044,
+      "Recall@10": 0.09105,
+      "NDCG@10": 0.04412840336563298,
+      "Recall@20": 0.21965,
+      "NDCG@20": 0.07558835957744459,
+      "Recall@50": 0.8509,
+      "NDCG@50": 0.20232772903168275
+    },
+    {
+      "experiment": "ADL without cross-domain history",
+      "domain": "Beauty",
+      "examples": 20000,
+      "Recall@1": 0.05405,
+      "NDCG@1": 0.05405,
+      "Recall@5": 0.18805,
+      "NDCG@5": 0.12137976434574459,
+      "Recall@10": 0.29,
+      "NDCG@10": 0.1542202378234159,
+      "Recall@20": 0.43515,
+      "NDCG@20": 0.190626351311326,
+      "Recall@50": 0.79345,
+      "NDCG@50": 0.26085870205345935
+    },
+    {
+      "experiment": "ADL without cross-domain history",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.0452,
+      "NDCG@1": 0.0452,
+      "Recall@5": 0.17545,
+      "NDCG@5": 0.11033148859303171,
+      "Recall@10": 0.29925,
+      "NDCG@10": 0.1500319207815006,
+      "Recall@20": 0.4829,
+      "NDCG@20": 0.19618738447229675,
+      "Recall@50": 0.80805,
+      "NDCG@50": 0.2607878782600802
+    },
+    {
+      "experiment": "ADL without cross-domain history",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.0232,
+      "NDCG@1": 0.0232,
+      "Recall@5": 0.11905,
+      "NDCG@5": 0.06956320659824786,
+      "Recall@10": 0.24635,
+      "NDCG@10": 0.11014809367570827,
+      "Recall@20": 0.47475,
+      "NDCG@20": 0.16743794729097627,
+      "Recall@50": 0.8383,
+      "NDCG@50": 0.2399958556766504
+    },
+    {
+      "experiment": "ADL router with domain",
+      "domain": "Beauty",
+      "examples": 20000,
+      "Recall@1": 0.0512,
+      "NDCG@1": 0.0512,
+      "Recall@5": 0.19255,
+      "NDCG@5": 0.12194060682154022,
+      "Recall@10": 0.3039,
+      "NDCG@10": 0.15779126564898677,
+      "Recall@20": 0.4635,
+      "NDCG@20": 0.19781961185525515,
+      "Recall@50": 0.82365,
+      "NDCG@50": 0.2690290373315359
+    },
+    {
+      "experiment": "ADL router with domain",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.05025,
+      "NDCG@1": 0.05025,
+      "Recall@5": 0.18385,
+      "NDCG@5": 0.1166735661229877,
+      "Recall@10": 0.3083,
+      "NDCG@10": 0.1565239043635775,
+      "Recall@20": 0.50155,
+      "NDCG@20": 0.20504424475907226,
+      "Recall@50": 0.81955,
+      "NDCG@50": 0.2683620823673611
+    },
+    {
+      "experiment": "ADL router with domain",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.02455,
+      "NDCG@1": 0.02455,
+      "Recall@5": 0.11805,
+      "NDCG@5": 0.06997872241648241,
+      "Recall@10": 0.2469,
+      "NDCG@10": 0.11102869990427877,
+      "Recall@20": 0.4763,
+      "NDCG@20": 0.16855822954832148,
+      "Recall@50": 0.86265,
+      "NDCG@50": 0.2456723112501063
+    }
+  ]
+}

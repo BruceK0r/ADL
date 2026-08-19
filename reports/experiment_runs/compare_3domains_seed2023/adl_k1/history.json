@@ -1,0 +1,293 @@
+[
+  {
+    "epoch": 1,
+    "train": {
+      "loss": 0.8319523461094653,
+      "contexts": 3156801,
+      "seconds": 47.0101526863873,
+      "cluster_counts": [
+        15784005
+      ],
+      "mean_routing_entropy": 0.0
+    },
+    "validation": {
+      "loss": 1.8762396151860554,
+      "contexts": 60000,
+      "seconds": 1.7120602801442146,
+      "macro_NDCG@10": 0.14606424117566186,
+      "ranking": {
+        "Beauty": {
+          "examples": 20000,
+          "Recall@1": 0.04815,
+          "NDCG@1": 0.04815,
+          "Recall@5": 0.1809,
+          "NDCG@5": 0.11428061725593107,
+          "Recall@10": 0.29665,
+          "NDCG@10": 0.15140662817812256,
+          "Recall@20": 0.4674,
+          "NDCG@20": 0.1942659125788725,
+          "Recall@50": 0.79015,
+          "NDCG@50": 0.2580321747523541
+        },
+        "Electronic": {
+          "examples": 20000,
+          "Recall@1": 0.0516,
+          "NDCG@1": 0.0516,
+          "Recall@5": 0.1934,
+          "NDCG@5": 0.12273197912432626,
+          "Recall@10": 0.3203,
+          "NDCG@10": 0.16344978655123676,
+          "Recall@20": 0.5073,
+          "NDCG@20": 0.21045602634721075,
+          "Recall@50": 0.81335,
+          "NDCG@50": 0.27117261823946315
+        },
+        "Phone": {
+          "examples": 20000,
+          "Recall@1": 0.02955,
+          "NDCG@1": 0.02955,
+          "Recall@5": 0.1379,
+          "NDCG@5": 0.08217313296692005,
+          "Recall@10": 0.2668,
+          "NDCG@10": 0.12333630879762628,
+          "Recall@20": 0.4747,
+          "NDCG@20": 0.17542722374186145,
+          "Recall@50": 0.82725,
+          "NDCG@50": 0.24553443662194713
+        }
+      },
+      "cluster_counts": [
+        6060000
+      ],
+      "mean_routing_entropy": 0.0,
+      "domain_cluster_counts": {
+        "Beauty": [
+          2020000
+        ],
+        "Electronic": [
+          2020000
+        ],
+        "Phone": [
+          2020000
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Beauty": [
+          1.0
+        ],
+        "Electronic": [
+          1.0
+        ],
+        "Phone": [
+          1.0
+        ]
+      },
+      "cluster_domain_fractions": [
+        [
+          0.3333333333333333
+        ],
+        [
+          0.3333333333333333
+        ],
+        [
+          0.3333333333333333
+        ]
+      ],
+      "domain_cluster_nmi": 0.0
+    }
+  },
+  {
+    "epoch": 2,
+    "train": {
+      "loss": 0.5692953142957573,
+      "contexts": 3156801,
+      "seconds": 48.20398975536227,
+      "cluster_counts": [
+        15784005
+      ],
+      "mean_routing_entropy": 0.0
+    },
+    "validation": {
+      "loss": 1.9929491759936016,
+      "contexts": 60000,
+      "seconds": 1.798107799142599,
+      "macro_NDCG@10": 0.14443774601357787,
+      "ranking": {
+        "Beauty": {
+          "examples": 20000,
+          "Recall@1": 0.049,
+          "NDCG@1": 0.049,
+          "Recall@5": 0.17895,
+          "NDCG@5": 0.11407576149925915,
+          "Recall@10": 0.29415,
+          "NDCG@10": 0.15110163197462514,
+          "Recall@20": 0.4613,
+          "NDCG@20": 0.19307530073873935,
+          "Recall@50": 0.7997,
+          "NDCG@50": 0.2597967293827953
+        },
+        "Electronic": {
+          "examples": 20000,
+          "Recall@1": 0.051,
+          "NDCG@1": 0.051,
+          "Recall@5": 0.19075,
+          "NDCG@5": 0.12057703225592054,
+          "Recall@10": 0.3174,
+          "NDCG@10": 0.16114183557288717,
+          "Recall@20": 0.5022,
+          "NDCG@20": 0.20757436473227023,
+          "Recall@50": 0.81715,
+          "NDCG@50": 0.27008317711061547
+        },
+        "Phone": {
+          "examples": 20000,
+          "Recall@1": 0.03035,
+          "NDCG@1": 0.03035,
+          "Recall@5": 0.13675,
+          "NDCG@5": 0.08244642997368491,
+          "Recall@10": 0.2576,
+          "NDCG@10": 0.12106977049322129,
+          "Recall@20": 0.4703,
+          "NDCG@20": 0.17435268878154064,
+          "Recall@50": 0.8481,
+          "NDCG@50": 0.24967524686597398
+        }
+      },
+      "cluster_counts": [
+        6060000
+      ],
+      "mean_routing_entropy": 0.0,
+      "domain_cluster_counts": {
+        "Beauty": [
+          2020000
+        ],
+        "Electronic": [
+          2020000
+        ],
+        "Phone": [
+          2020000
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Beauty": [
+          1.0
+        ],
+        "Electronic": [
+          1.0
+        ],
+        "Phone": [
+          1.0
+        ]
+      },
+      "cluster_domain_fractions": [
+        [
+          0.3333333333333333
+        ],
+        [
+          0.3333333333333333
+        ],
+        [
+          0.3333333333333333
+        ]
+      ],
+      "domain_cluster_nmi": 0.0
+    }
+  },
+  {
+    "epoch": 3,
+    "train": {
+      "loss": 0.3292681604244459,
+      "contexts": 3156801,
+      "seconds": 48.8911939561367,
+      "cluster_counts": [
+        15784005
+      ],
+      "mean_routing_entropy": 0.0
+    },
+    "validation": {
+      "loss": 2.7483256311098736,
+      "contexts": 60000,
+      "seconds": 1.5361369252204895,
+      "macro_NDCG@10": 0.1285415142641066,
+      "ranking": {
+        "Beauty": {
+          "examples": 20000,
+          "Recall@1": 0.0418,
+          "NDCG@1": 0.0418,
+          "Recall@5": 0.15945,
+          "NDCG@5": 0.10049459076193895,
+          "Recall@10": 0.2728,
+          "NDCG@10": 0.1368750820778135,
+          "Recall@20": 0.4417,
+          "NDCG@20": 0.17934822379635518,
+          "Recall@50": 0.78225,
+          "NDCG@50": 0.2466189512287071
+        },
+        "Electronic": {
+          "examples": 20000,
+          "Recall@1": 0.0418,
+          "NDCG@1": 0.0418,
+          "Recall@5": 0.16475,
+          "NDCG@5": 0.10248178347824617,
+          "Recall@10": 0.28255,
+          "NDCG@10": 0.1402588561149791,
+          "Recall@20": 0.46505,
+          "NDCG@20": 0.18607746153394447,
+          "Recall@50": 0.7984,
+          "NDCG@50": 0.2521884195058071
+        },
+        "Phone": {
+          "examples": 20000,
+          "Recall@1": 0.02655,
+          "NDCG@1": 0.02655,
+          "Recall@5": 0.1209,
+          "NDCG@5": 0.07294984884163593,
+          "Recall@10": 0.232,
+          "NDCG@10": 0.10849060459952718,
+          "Recall@20": 0.4335,
+          "NDCG@20": 0.1588487291726768,
+          "Recall@50": 0.84585,
+          "NDCG@50": 0.24078467340307522
+        }
+      },
+      "cluster_counts": [
+        6060000
+      ],
+      "mean_routing_entropy": 0.0,
+      "domain_cluster_counts": {
+        "Beauty": [
+          2020000
+        ],
+        "Electronic": [
+          2020000
+        ],
+        "Phone": [
+          2020000
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Beauty": [
+          1.0
+        ],
+        "Electronic": [
+          1.0
+        ],
+        "Phone": [
+          1.0
+        ]
+      },
+      "cluster_domain_fractions": [
+        [
+          0.3333333333333333
+        ],
+        [
+          0.3333333333333333
+        ],
+        [
+          0.3333333333333333
+        ]
+      ],
+      "domain_cluster_nmi": 0.0
+    }
+  }
+]

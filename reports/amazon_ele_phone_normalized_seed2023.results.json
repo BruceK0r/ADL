@@ -1,0 +1,144 @@
+{
+  "experiment_domains": [
+    "Electronic",
+    "Phone"
+  ],
+  "sampled_ranking_protocol": {
+    "positive_candidates": 1,
+    "negative_candidates": 100,
+    "negative_sampling": "50% uniform + 50% popularity^0.75; fixed per user-domain"
+  },
+  "selected_epoch": 1,
+  "validation_at_selected_epoch": {
+    "loss": 1.3811988075256347,
+    "contexts": 40000,
+    "seconds": 0.8953582122921944,
+    "macro_NDCG@10": 0.1426335876297904,
+    "ranking": {
+      "Electronic": {
+        "examples": 20000,
+        "Recall@1": 0.0531,
+        "NDCG@1": 0.0531,
+        "Recall@5": 0.1967,
+        "NDCG@5": 0.12516238077188108,
+        "Recall@10": 0.3182,
+        "NDCG@10": 0.16407803088085102,
+        "Recall@20": 0.4988,
+        "NDCG@20": 0.2094621766708176,
+        "Recall@50": 0.80925,
+        "NDCG@50": 0.2710229137641484
+      },
+      "Phone": {
+        "examples": 20000,
+        "Recall@1": 0.02855,
+        "NDCG@1": 0.02855,
+        "Recall@5": 0.1336,
+        "NDCG@5": 0.08011856827954068,
+        "Recall@10": 0.26215,
+        "NDCG@10": 0.1211891443787298,
+        "Recall@20": 0.4752,
+        "NDCG@20": 0.17463110445065322,
+        "Recall@50": 0.8258,
+        "NDCG@50": 0.24438513066108922
+      }
+    },
+    "cluster_counts": [
+      4036675,
+      0,
+      3325
+    ],
+    "mean_routing_entropy": 1.098612321472168
+  },
+  "test": {
+    "loss": 1.366921946144104,
+    "contexts": 40000,
+    "seconds": 0.9206509329378605,
+    "macro_NDCG@10": 0.14064748064064636,
+    "ranking": {
+      "Electronic": {
+        "examples": 20000,
+        "Recall@1": 0.05325,
+        "NDCG@1": 0.05325,
+        "Recall@5": 0.2005,
+        "NDCG@5": 0.12662170129967576,
+        "Recall@10": 0.32815,
+        "NDCG@10": 0.16741166662505455,
+        "Recall@20": 0.51515,
+        "NDCG@20": 0.214409098522378,
+        "Recall@50": 0.8263,
+        "NDCG@50": 0.2761824263739694
+      },
+      "Phone": {
+        "examples": 20000,
+        "Recall@1": 0.0261,
+        "NDCG@1": 0.0261,
+        "Recall@5": 0.123,
+        "NDCG@5": 0.07297034335404422,
+        "Recall@10": 0.25165,
+        "NDCG@10": 0.11388329465623814,
+        "Recall@20": 0.4819,
+        "NDCG@20": 0.17160957036728142,
+        "Recall@50": 0.8418,
+        "NDCG@50": 0.2432491330382009
+      }
+    },
+    "cluster_counts": [
+      4036671,
+      0,
+      3329
+    ],
+    "mean_routing_entropy": 1.098612321472168
+  },
+  "parameters_excluding_frozen_text_table": 14829200,
+  "config": {
+    "user_num": 290876,
+    "item_num": 116966,
+    "domain_num": 2,
+    "time_dim": 8,
+    "user_dim": 32,
+    "item_dim": 32,
+    "domain_dim": 8,
+    "text_projection_dim": 128,
+    "hidden_dims": [
+      512,
+      256,
+      128,
+      64,
+      32
+    ],
+    "cluster_num": 3,
+    "beta": 0.9,
+    "routing_iterations": 3,
+    "normalize_router_input": true
+  },
+  "arguments": {
+    "data_dir": "data/processed/amazon_ele_phone",
+    "output_dir": "outputs/amazon_ele_phone_seed2023",
+    "epochs": 10,
+    "patience": 2,
+    "batch_size": 2048,
+    "learning_rate": 0.001,
+    "user_dim": 32,
+    "item_dim": 32,
+    "domain_dim": 8,
+    "text_projection_dim": 128,
+    "hidden_dims": "512,256,128,64,32",
+    "clusters": 3,
+    "beta": 0.9,
+    "routing_iterations": 3,
+    "no_normalize_router_input": false,
+    "seed": 2023,
+    "device": "cuda:0",
+    "num_workers": 0,
+    "no_amp": false,
+    "max_steps": null,
+    "resume": false
+  },
+  "runtime": {
+    "python": "3.11.16",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "device": "cuda:0",
+    "device_name": "NVIDIA RTX A6000"
+  }
+}
