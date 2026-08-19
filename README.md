@@ -116,6 +116,19 @@ python scripts/summarize_3domain_results.py \
   --output-csv outputs/amazon_adl_metrics.csv
 ```
 
+## Experiment reports and committed results
+
+- [`exp_explore.md`](exp_explore.md) documents preprocessing, temporal splitting,
+  negative sampling, the ADL architecture, and the first two-/three-domain runs.
+- [`exp_compare.md`](exp_compare.md) reports SharedBottom, ADL K=1/3/5/7/9, and the
+  Qwen, cross-domain-history, and router-domain ablations on both dataset views.
+- [`reports/`](reports/) contains the machine-readable CSV/JSON summaries and each
+  comparison run's `results.json` and `history.json`.
+
+Model checkpoints, raw/processed datasets, tensor files, and logs are intentionally
+not committed because of their size. They can be regenerated with the commands above
+and the settings recorded in the reports.
+
 ## Leakage and reproducibility checks
 
 - Histories contain only events earlier than the target event.

@@ -1,0 +1,115 @@
+{
+  "protocols": [
+    {
+      "experiment": "Beauty+Electronic+Phone",
+      "result_path": "outputs/amazon_3domains_dot_seed2023/results.json",
+      "selected_epoch": 2,
+      "sampled_ranking_protocol": {
+        "positive_candidates": 1,
+        "negative_candidates": 100,
+        "negative_sampling": "50% uniform + 50% popularity^0.75; fixed per user-domain"
+      },
+      "runtime": {
+        "python": "3.11.16",
+        "torch": "2.6.0+cu124",
+        "cuda": "12.4",
+        "device": "cuda:0",
+        "device_name": "NVIDIA RTX A6000"
+      }
+    },
+    {
+      "experiment": "Electronic+Phone",
+      "result_path": "outputs/amazon_ele_phone_dot_seed2023/results.json",
+      "selected_epoch": 1,
+      "sampled_ranking_protocol": {
+        "positive_candidates": 1,
+        "negative_candidates": 100,
+        "negative_sampling": "50% uniform + 50% popularity^0.75; fixed per user-domain"
+      },
+      "runtime": {
+        "python": "3.11.16",
+        "torch": "2.6.0+cu124",
+        "cuda": "12.4",
+        "device": "cuda:0",
+        "device_name": "NVIDIA RTX A6000"
+      }
+    }
+  ],
+  "metrics": [
+    {
+      "experiment": "Beauty+Electronic+Phone",
+      "domain": "Beauty",
+      "examples": 20000,
+      "Recall@1": 0.0486,
+      "NDCG@1": 0.0486,
+      "Recall@5": 0.1863,
+      "NDCG@5": 0.11771628602156052,
+      "Recall@10": 0.29195,
+      "NDCG@10": 0.15170190406611045,
+      "Recall@20": 0.4564,
+      "NDCG@20": 0.19293747523034205,
+      "Recall@50": 0.82245,
+      "NDCG@50": 0.2651802005202972
+    },
+    {
+      "experiment": "Beauty+Electronic+Phone",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.04345,
+      "NDCG@1": 0.04345,
+      "Recall@5": 0.174,
+      "NDCG@5": 0.10814087473307811,
+      "Recall@10": 0.2965,
+      "NDCG@10": 0.1474332681174353,
+      "Recall@20": 0.4823,
+      "NDCG@20": 0.19403334229309221,
+      "Recall@50": 0.8133,
+      "NDCG@50": 0.25972413831612634
+    },
+    {
+      "experiment": "Beauty+Electronic+Phone",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.0207,
+      "NDCG@1": 0.0207,
+      "Recall@5": 0.1062,
+      "NDCG@5": 0.06191321093348506,
+      "Recall@10": 0.22225,
+      "NDCG@10": 0.09884645860596654,
+      "Recall@20": 0.46065,
+      "NDCG@20": 0.15851216843782104,
+      "Recall@50": 0.8491,
+      "NDCG@50": 0.23592777185471833
+    },
+    {
+      "experiment": "Electronic+Phone",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.0592,
+      "NDCG@1": 0.0592,
+      "Recall@5": 0.2152,
+      "NDCG@5": 0.1374731959978716,
+      "Recall@10": 0.34935,
+      "NDCG@10": 0.1805295010466646,
+      "Recall@20": 0.53685,
+      "NDCG@20": 0.22772582466100016,
+      "Recall@50": 0.8329,
+      "NDCG@50": 0.2865144479525594
+    },
+    {
+      "experiment": "Electronic+Phone",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.0324,
+      "NDCG@1": 0.0324,
+      "Recall@5": 0.16235,
+      "NDCG@5": 0.09588894106464337,
+      "Recall@10": 0.31665,
+      "NDCG@10": 0.14535658061217605,
+      "Recall@20": 0.53605,
+      "NDCG@20": 0.20052302616902917,
+      "Recall@50": 0.8584,
+      "NDCG@50": 0.26473394341855305
+    }
+  ]
+}

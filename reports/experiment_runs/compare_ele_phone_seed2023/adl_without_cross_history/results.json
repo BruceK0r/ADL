@@ -1,0 +1,226 @@
+{
+  "model": "adl",
+  "experiment_domains": [
+    "Electronic",
+    "Phone"
+  ],
+  "sampled_ranking_protocol": {
+    "positive_candidates": 1,
+    "negative_candidates": 100,
+    "negative_sampling": "50% uniform + 50% popularity^0.75; fixed per user-domain"
+  },
+  "selected_epoch": 2,
+  "validation_at_selected_epoch": {
+    "loss": 1.5816520050048828,
+    "contexts": 40000,
+    "seconds": 1.6560032367706299,
+    "macro_NDCG@10": 0.1430547135082874,
+    "ranking": {
+      "Electronic": {
+        "examples": 20000,
+        "Recall@1": 0.05095,
+        "NDCG@1": 0.05095,
+        "Recall@5": 0.191,
+        "NDCG@5": 0.12085346456112347,
+        "Recall@10": 0.316,
+        "NDCG@10": 0.16103983221940155,
+        "Recall@20": 0.5014,
+        "NDCG@20": 0.20781877526633866,
+        "Recall@50": 0.80045,
+        "NDCG@50": 0.26713806867972645
+      },
+      "Phone": {
+        "examples": 20000,
+        "Recall@1": 0.02905,
+        "NDCG@1": 0.02905,
+        "Recall@5": 0.1435,
+        "NDCG@5": 0.08457382170396852,
+        "Recall@10": 0.27015,
+        "NDCG@10": 0.12506959479717325,
+        "Recall@20": 0.4841,
+        "NDCG@20": 0.1788555771364169,
+        "Recall@50": 0.82215,
+        "NDCG@50": 0.2462318112126915
+      }
+    },
+    "cluster_counts": [
+      433158,
+      2432047,
+      1174795
+    ],
+    "mean_routing_entropy": 1.0575281036376953,
+    "domain_cluster_counts": {
+      "Electronic": [
+        175297,
+        1125208,
+        719495
+      ],
+      "Phone": [
+        257861,
+        1306839,
+        455300
+      ]
+    },
+    "domain_cluster_fractions": {
+      "Electronic": [
+        0.08678069306930693,
+        0.5570336633663366,
+        0.35618564356435645
+      ],
+      "Phone": [
+        0.1276539603960396,
+        0.64695,
+        0.2253960396039604
+      ]
+    },
+    "cluster_domain_fractions": [
+      [
+        0.4046952843996879,
+        0.4626588219717793,
+        0.6124430219740465
+      ],
+      [
+        0.5953047156003122,
+        0.5373411780282207,
+        0.38755697802595346
+      ]
+    ],
+    "domain_cluster_nmi": 0.01396682887565753
+  },
+  "test": {
+    "loss": 1.551046320915222,
+    "contexts": 40000,
+    "seconds": 1.6737861596047878,
+    "macro_NDCG@10": 0.132143911662219,
+    "ranking": {
+      "Electronic": {
+        "examples": 20000,
+        "Recall@1": 0.04545,
+        "NDCG@1": 0.04545,
+        "Recall@5": 0.1778,
+        "NDCG@5": 0.11094302993365796,
+        "Recall@10": 0.3066,
+        "NDCG@10": 0.15226645411132603,
+        "Recall@20": 0.49995,
+        "NDCG@20": 0.20082623471081812,
+        "Recall@50": 0.81845,
+        "NDCG@50": 0.2641535796397922
+      },
+      "Phone": {
+        "examples": 20000,
+        "Recall@1": 0.02295,
+        "NDCG@1": 0.02295,
+        "Recall@5": 0.12025,
+        "NDCG@5": 0.06997741988371729,
+        "Recall@10": 0.2521,
+        "NDCG@10": 0.11202136921311201,
+        "Recall@20": 0.48155,
+        "NDCG@20": 0.169569151678543,
+        "Recall@50": 0.8411,
+        "NDCG@50": 0.24117594583856494
+      }
+    },
+    "cluster_counts": [
+      432084,
+      2518498,
+      1089418
+    ],
+    "mean_routing_entropy": 1.0560905570983887,
+    "domain_cluster_counts": {
+      "Electronic": [
+        179085,
+        1181375,
+        659540
+      ],
+      "Phone": [
+        252999,
+        1337123,
+        429878
+      ]
+    },
+    "domain_cluster_fractions": {
+      "Electronic": [
+        0.0886559405940594,
+        0.5848391089108911,
+        0.3265049504950495
+      ],
+      "Phone": [
+        0.1252470297029703,
+        0.6619420792079208,
+        0.21281089108910892
+      ]
+    },
+    "cluster_domain_fractions": [
+      [
+        0.41446802010720135,
+        0.4690791892628066,
+        0.6054058221912985
+      ],
+      [
+        0.5855319798927986,
+        0.5309208107371933,
+        0.39459417780870154
+      ]
+    ],
+    "domain_cluster_nmi": 0.011225671436867394
+  },
+  "parameters_excluding_frozen_text_table": 14829200,
+  "config": {
+    "user_num": 290876,
+    "item_num": 116966,
+    "domain_num": 2,
+    "time_dim": 8,
+    "user_dim": 32,
+    "item_dim": 32,
+    "domain_dim": 8,
+    "text_projection_dim": 128,
+    "hidden_dims": [
+      512,
+      256,
+      128,
+      64,
+      32
+    ],
+    "cluster_num": 3,
+    "beta": 0.9,
+    "routing_iterations": 3,
+    "normalize_router_input": false,
+    "use_qwen": true,
+    "use_cross_domain_history": false,
+    "router_use_domain": false
+  },
+  "arguments": {
+    "model": "adl",
+    "data_dir": "data/processed/amazon_ele_phone",
+    "output_dir": "outputs/compare_ele_phone_seed2023/adl_without_cross_history",
+    "epochs": 10,
+    "patience": 2,
+    "batch_size": 2048,
+    "learning_rate": 0.001,
+    "user_dim": 32,
+    "item_dim": 32,
+    "domain_dim": 8,
+    "text_projection_dim": 128,
+    "hidden_dims": "512,256,128,64,32",
+    "clusters": 3,
+    "beta": 0.9,
+    "routing_iterations": 3,
+    "normalize_router_input": false,
+    "without_qwen": false,
+    "without_cross_domain_history": true,
+    "router_with_domain": false,
+    "seed": 2023,
+    "device": "cuda:0",
+    "num_workers": 0,
+    "no_amp": false,
+    "max_steps": null,
+    "resume": false
+  },
+  "runtime": {
+    "python": "3.11.16",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "device": "cuda:0",
+    "device_name": "NVIDIA RTX A6000"
+  }
+}

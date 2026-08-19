@@ -1,0 +1,283 @@
+{
+  "model": "adl",
+  "experiment_domains": [
+    "Beauty",
+    "Electronic",
+    "Phone"
+  ],
+  "sampled_ranking_protocol": {
+    "positive_candidates": 1,
+    "negative_candidates": 100,
+    "negative_sampling": "50% uniform + 50% popularity^0.75; fixed per user-domain"
+  },
+  "selected_epoch": 2,
+  "validation_at_selected_epoch": {
+    "loss": 1.932870239798228,
+    "contexts": 60000,
+    "seconds": 1.6572436057031155,
+    "macro_NDCG@10": 0.14419339509104737,
+    "ranking": {
+      "Beauty": {
+        "examples": 20000,
+        "Recall@1": 0.05085,
+        "NDCG@1": 0.05085,
+        "Recall@5": 0.18115,
+        "NDCG@5": 0.116271468293043,
+        "Recall@10": 0.2903,
+        "NDCG@10": 0.15136470830863932,
+        "Recall@20": 0.4535,
+        "NDCG@20": 0.19235391034532484,
+        "Recall@50": 0.8002,
+        "NDCG@50": 0.26068976455300796
+      },
+      "Electronic": {
+        "examples": 20000,
+        "Recall@1": 0.0507,
+        "NDCG@1": 0.0507,
+        "Recall@5": 0.18465,
+        "NDCG@5": 0.11738705541006371,
+        "Recall@10": 0.305,
+        "NDCG@10": 0.1559703628053101,
+        "Recall@20": 0.49345,
+        "NDCG@20": 0.20328367232867303,
+        "Recall@50": 0.801,
+        "NDCG@50": 0.2642353056843248
+      },
+      "Phone": {
+        "examples": 20000,
+        "Recall@1": 0.03185,
+        "NDCG@1": 0.03185,
+        "Recall@5": 0.13925,
+        "NDCG@5": 0.08458321314805589,
+        "Recall@10": 0.26635,
+        "NDCG@10": 0.12524511415919268,
+        "Recall@20": 0.477,
+        "NDCG@20": 0.1781866965146682,
+        "Recall@50": 0.82585,
+        "NDCG@50": 0.24761407817582226
+      }
+    },
+    "cluster_counts": [
+      3151769,
+      2889837,
+      18394
+    ],
+    "mean_routing_entropy": 0.9504987096150717,
+    "domain_cluster_counts": {
+      "Beauty": [
+        1502491,
+        505432,
+        12077
+      ],
+      "Electronic": [
+        748493,
+        1267671,
+        3836
+      ],
+      "Phone": [
+        900785,
+        1116734,
+        2481
+      ]
+    },
+    "domain_cluster_fractions": {
+      "Beauty": [
+        0.7438074257425743,
+        0.2502138613861386,
+        0.005978712871287129
+      ],
+      "Electronic": [
+        0.37054108910891087,
+        0.6275599009900991,
+        0.001899009900990099
+      ],
+      "Phone": [
+        0.44593316831683166,
+        0.5528386138613861,
+        0.0012282178217821783
+      ]
+    },
+    "cluster_domain_fractions": [
+      [
+        0.47671355356309425,
+        0.17489982999041123,
+        0.6565727954767859
+      ],
+      [
+        0.23748345770264254,
+        0.43866522575494743,
+        0.20854626508644122
+      ],
+      [
+        0.2858029887342632,
+        0.38643494425464137,
+        0.13488093943677287
+      ]
+    ],
+    "domain_cluster_nmi": 0.06284871522057439
+  },
+  "test": {
+    "loss": 1.8710529550234476,
+    "contexts": 60000,
+    "seconds": 1.5170484334230423,
+    "macro_NDCG@10": 0.13813341742687493,
+    "ranking": {
+      "Beauty": {
+        "examples": 20000,
+        "Recall@1": 0.05405,
+        "NDCG@1": 0.05405,
+        "Recall@5": 0.18805,
+        "NDCG@5": 0.12137976434574459,
+        "Recall@10": 0.29,
+        "NDCG@10": 0.1542202378234159,
+        "Recall@20": 0.43515,
+        "NDCG@20": 0.190626351311326,
+        "Recall@50": 0.79345,
+        "NDCG@50": 0.26085870205345935
+      },
+      "Electronic": {
+        "examples": 20000,
+        "Recall@1": 0.0452,
+        "NDCG@1": 0.0452,
+        "Recall@5": 0.17545,
+        "NDCG@5": 0.11033148859303171,
+        "Recall@10": 0.29925,
+        "NDCG@10": 0.1500319207815006,
+        "Recall@20": 0.4829,
+        "NDCG@20": 0.19618738447229675,
+        "Recall@50": 0.80805,
+        "NDCG@50": 0.2607878782600802
+      },
+      "Phone": {
+        "examples": 20000,
+        "Recall@1": 0.0232,
+        "NDCG@1": 0.0232,
+        "Recall@5": 0.11905,
+        "NDCG@5": 0.06956320659824786,
+        "Recall@10": 0.24635,
+        "NDCG@10": 0.11014809367570827,
+        "Recall@20": 0.47475,
+        "NDCG@20": 0.16743794729097627,
+        "Recall@50": 0.8383,
+        "NDCG@50": 0.2399958556766504
+      }
+    },
+    "cluster_counts": [
+      3438457,
+      2605630,
+      15913
+    ],
+    "mean_routing_entropy": 0.9481379100481669,
+    "domain_cluster_counts": {
+      "Beauty": [
+        1580361,
+        429688,
+        9951
+      ],
+      "Electronic": [
+        848062,
+        1168462,
+        3476
+      ],
+      "Phone": [
+        1010034,
+        1007480,
+        2486
+      ]
+    },
+    "domain_cluster_fractions": {
+      "Beauty": [
+        0.7823569306930693,
+        0.21271683168316832,
+        0.004926237623762376
+      ],
+      "Electronic": [
+        0.4198326732673267,
+        0.5784465346534653,
+        0.0017207920792079209
+      ],
+      "Phone": [
+        0.5000168316831684,
+        0.49875247524752475,
+        0.0012306930693069308
+      ]
+    },
+    "cluster_domain_fractions": [
+      [
+        0.4596134254405392,
+        0.16490752716233695,
+        0.6253377741469239
+      ],
+      [
+        0.24664028080037062,
+        0.44843742204380516,
+        0.21843775529441337
+      ],
+      [
+        0.29374629375909017,
+        0.3866550507938579,
+        0.15622447055866273
+      ]
+    ],
+    "domain_cluster_nmi": 0.06042835188149097
+  },
+  "parameters_excluding_frozen_text_table": 23066648,
+  "config": {
+    "user_num": 456697,
+    "item_num": 208565,
+    "domain_num": 3,
+    "time_dim": 8,
+    "user_dim": 32,
+    "item_dim": 32,
+    "domain_dim": 8,
+    "text_projection_dim": 128,
+    "hidden_dims": [
+      512,
+      256,
+      128,
+      64,
+      32
+    ],
+    "cluster_num": 3,
+    "beta": 0.9,
+    "routing_iterations": 3,
+    "normalize_router_input": false,
+    "use_qwen": true,
+    "use_cross_domain_history": false,
+    "router_use_domain": false
+  },
+  "arguments": {
+    "model": "adl",
+    "data_dir": "data/processed/amazon_3domains",
+    "output_dir": "outputs/compare_3domains_seed2023/adl_without_cross_history",
+    "epochs": 10,
+    "patience": 2,
+    "batch_size": 2048,
+    "learning_rate": 0.001,
+    "user_dim": 32,
+    "item_dim": 32,
+    "domain_dim": 8,
+    "text_projection_dim": 128,
+    "hidden_dims": "512,256,128,64,32",
+    "clusters": 3,
+    "beta": 0.9,
+    "routing_iterations": 3,
+    "normalize_router_input": false,
+    "without_qwen": false,
+    "without_cross_domain_history": true,
+    "router_with_domain": false,
+    "seed": 2023,
+    "device": "cuda:0",
+    "num_workers": 0,
+    "no_amp": false,
+    "max_steps": null,
+    "resume": false
+  },
+  "runtime": {
+    "python": "3.11.16",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "device": "cuda:0",
+    "device_name": "NVIDIA RTX A6000"
+  }
+}

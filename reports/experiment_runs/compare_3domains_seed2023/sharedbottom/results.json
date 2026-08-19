@@ -1,0 +1,171 @@
+{
+  "model": "sharedbottom",
+  "experiment_domains": [
+    "Beauty",
+    "Electronic",
+    "Phone"
+  ],
+  "sampled_ranking_protocol": {
+    "positive_candidates": 1,
+    "negative_candidates": 100,
+    "negative_sampling": "50% uniform + 50% popularity^0.75; fixed per user-domain"
+  },
+  "selected_epoch": 2,
+  "validation_at_selected_epoch": {
+    "loss": 2.033973113600413,
+    "contexts": 60000,
+    "seconds": 1.5183017067611217,
+    "macro_NDCG@10": 0.15342161040605679,
+    "ranking": {
+      "Beauty": {
+        "examples": 20000,
+        "Recall@1": 0.05215,
+        "NDCG@1": 0.05215,
+        "Recall@5": 0.1882,
+        "NDCG@5": 0.1204587160666081,
+        "Recall@10": 0.3023,
+        "NDCG@10": 0.1571204522848946,
+        "Recall@20": 0.46735,
+        "NDCG@20": 0.19852357299137344,
+        "Recall@50": 0.8077,
+        "NDCG@50": 0.26574682805733985
+      },
+      "Electronic": {
+        "examples": 20000,
+        "Recall@1": 0.05705,
+        "NDCG@1": 0.05705,
+        "Recall@5": 0.2029,
+        "NDCG@5": 0.12982633818188913,
+        "Recall@10": 0.3241,
+        "NDCG@10": 0.1686254573809549,
+        "Recall@20": 0.50365,
+        "NDCG@20": 0.21373699973139118,
+        "Recall@50": 0.81655,
+        "NDCG@50": 0.27588039186711577
+      },
+      "Phone": {
+        "examples": 20000,
+        "Recall@1": 0.035,
+        "NDCG@1": 0.035,
+        "Recall@5": 0.15355,
+        "NDCG@5": 0.09308111859540434,
+        "Recall@10": 0.28305,
+        "NDCG@10": 0.13451892155232087,
+        "Recall@20": 0.49565,
+        "NDCG@20": 0.18789849019174432,
+        "Recall@50": 0.85075,
+        "NDCG@50": 0.2586489010191633
+      }
+    },
+    "cluster_counts": null,
+    "mean_routing_entropy": null
+  },
+  "test": {
+    "loss": 1.9604857528686523,
+    "contexts": 60000,
+    "seconds": 1.3134181648492813,
+    "macro_NDCG@10": 0.14664216899913357,
+    "ranking": {
+      "Beauty": {
+        "examples": 20000,
+        "Recall@1": 0.05915,
+        "NDCG@1": 0.05915,
+        "Recall@5": 0.19505,
+        "NDCG@5": 0.12756685269323204,
+        "Recall@10": 0.29525,
+        "NDCG@10": 0.15971862675868337,
+        "Recall@20": 0.44685,
+        "NDCG@20": 0.19771377370891688,
+        "Recall@50": 0.8078,
+        "NDCG@50": 0.26890430029004253
+      },
+      "Electronic": {
+        "examples": 20000,
+        "Recall@1": 0.05325,
+        "NDCG@1": 0.05325,
+        "Recall@5": 0.19275,
+        "NDCG@5": 0.12301344921171915,
+        "Recall@10": 0.31475,
+        "NDCG@10": 0.16209906275328576,
+        "Recall@20": 0.5032,
+        "NDCG@20": 0.20941797541326787,
+        "Recall@50": 0.8237,
+        "NDCG@50": 0.2730960204552465
+      },
+      "Phone": {
+        "examples": 20000,
+        "Recall@1": 0.02385,
+        "NDCG@1": 0.02385,
+        "Recall@5": 0.1331,
+        "NDCG@5": 0.07674174263476631,
+        "Recall@10": 0.26215,
+        "NDCG@10": 0.1181088174854316,
+        "Recall@20": 0.4975,
+        "NDCG@20": 0.17695924780529754,
+        "Recall@50": 0.86835,
+        "NDCG@50": 0.2510083419038504
+      }
+    },
+    "cluster_counts": null,
+    "mean_routing_entropy": null
+  },
+  "parameters_excluding_frozen_text_table": 21831608,
+  "config": {
+    "user_num": 456697,
+    "item_num": 208565,
+    "domain_num": 3,
+    "time_dim": 8,
+    "user_dim": 32,
+    "item_dim": 32,
+    "domain_dim": 8,
+    "text_projection_dim": 128,
+    "hidden_dims": [
+      512,
+      256,
+      128,
+      64,
+      32
+    ],
+    "cluster_num": 1,
+    "beta": 0.9,
+    "routing_iterations": 3,
+    "normalize_router_input": false,
+    "use_qwen": true,
+    "use_cross_domain_history": true,
+    "router_use_domain": false
+  },
+  "arguments": {
+    "model": "sharedbottom",
+    "data_dir": "data/processed/amazon_3domains",
+    "output_dir": "outputs/compare_3domains_seed2023/sharedbottom",
+    "epochs": 10,
+    "patience": 2,
+    "batch_size": 2048,
+    "learning_rate": 0.001,
+    "user_dim": 32,
+    "item_dim": 32,
+    "domain_dim": 8,
+    "text_projection_dim": 128,
+    "hidden_dims": "512,256,128,64,32",
+    "clusters": 1,
+    "beta": 0.9,
+    "routing_iterations": 3,
+    "normalize_router_input": false,
+    "without_qwen": false,
+    "without_cross_domain_history": false,
+    "router_with_domain": false,
+    "seed": 2023,
+    "device": "cuda:0",
+    "num_workers": 0,
+    "no_amp": false,
+    "max_steps": null,
+    "resume": false
+  },
+  "runtime": {
+    "python": "3.11.16",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "device": "cuda:0",
+    "device_name": "NVIDIA RTX A6000"
+  }
+}

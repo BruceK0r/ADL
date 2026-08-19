@@ -1,0 +1,878 @@
+{
+  "sampled_ranking_protocol": {
+    "positive_candidates": 1,
+    "negative_candidates": 100,
+    "negative_sampling": "50% uniform + 50% popularity^0.75; fixed per user-domain"
+  },
+  "experiments": [
+    {
+      "experiment": "SharedBottom",
+      "directory": "sharedbottom",
+      "model": "sharedbottom",
+      "selected_epoch": 1,
+      "validation_macro_NDCG@10": 0.16296530780882074,
+      "test_macro_NDCG@10": 0.15997245773443566,
+      "parameters_excluding_frozen_text_table": 13594160,
+      "config": {
+        "user_num": 290876,
+        "item_num": 116966,
+        "domain_num": 2,
+        "time_dim": 8,
+        "user_dim": 32,
+        "item_dim": 32,
+        "domain_dim": 8,
+        "text_projection_dim": 128,
+        "hidden_dims": [
+          512,
+          256,
+          128,
+          64,
+          32
+        ],
+        "cluster_num": 1,
+        "beta": 0.9,
+        "routing_iterations": 3,
+        "normalize_router_input": false,
+        "use_qwen": true,
+        "use_cross_domain_history": true,
+        "router_use_domain": false
+      },
+      "cluster_counts": null,
+      "mean_routing_entropy": null,
+      "domain_cluster_nmi": null,
+      "domain_cluster_counts": null,
+      "domain_cluster_fractions": null
+    },
+    {
+      "experiment": "ADL K=1",
+      "directory": "adl_k1",
+      "model": "adl",
+      "selected_epoch": 1,
+      "validation_macro_NDCG@10": 0.15094124423728794,
+      "test_macro_NDCG@10": 0.15166518357288583,
+      "parameters_excluding_frozen_text_table": 14005840,
+      "config": {
+        "user_num": 290876,
+        "item_num": 116966,
+        "domain_num": 2,
+        "time_dim": 8,
+        "user_dim": 32,
+        "item_dim": 32,
+        "domain_dim": 8,
+        "text_projection_dim": 128,
+        "hidden_dims": [
+          512,
+          256,
+          128,
+          64,
+          32
+        ],
+        "cluster_num": 1,
+        "beta": 0.9,
+        "routing_iterations": 3,
+        "normalize_router_input": false,
+        "use_qwen": true,
+        "use_cross_domain_history": true,
+        "router_use_domain": false
+      },
+      "cluster_counts": [
+        4040000
+      ],
+      "mean_routing_entropy": 0.0,
+      "domain_cluster_nmi": 0.0,
+      "domain_cluster_counts": {
+        "Electronic": [
+          2020000
+        ],
+        "Phone": [
+          2020000
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Electronic": [
+          1.0
+        ],
+        "Phone": [
+          1.0
+        ]
+      }
+    },
+    {
+      "experiment": "ADL K=3",
+      "directory": "adl_k3",
+      "model": "adl",
+      "selected_epoch": 1,
+      "validation_macro_NDCG@10": 0.15856891426853878,
+      "test_macro_NDCG@10": 0.16294304082942032,
+      "parameters_excluding_frozen_text_table": 14829200,
+      "config": {
+        "user_num": 290876,
+        "item_num": 116966,
+        "domain_num": 2,
+        "time_dim": 8,
+        "user_dim": 32,
+        "item_dim": 32,
+        "domain_dim": 8,
+        "text_projection_dim": 128,
+        "hidden_dims": [
+          512,
+          256,
+          128,
+          64,
+          32
+        ],
+        "cluster_num": 3,
+        "beta": 0.9,
+        "routing_iterations": 3,
+        "normalize_router_input": false
+      },
+      "cluster_counts": [
+        1179695,
+        2762788,
+        97517
+      ],
+      "mean_routing_entropy": 1.0986078611373902,
+      "domain_cluster_nmi": 0.034241504304770916,
+      "domain_cluster_counts": {
+        "Electronic": [
+          683506,
+          1239003,
+          97491
+        ],
+        "Phone": [
+          496189,
+          1523785,
+          26
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Electronic": [
+          0.33836930693069306,
+          0.6133678217821782,
+          0.048262871287128715
+        ],
+        "Phone": [
+          0.2456381188118812,
+          0.7543490099009901,
+          1.2871287128712871e-05
+        ]
+      }
+    },
+    {
+      "experiment": "ADL K=5",
+      "directory": "adl_k5",
+      "model": "adl",
+      "selected_epoch": 2,
+      "validation_macro_NDCG@10": 0.15006440518130926,
+      "test_macro_NDCG@10": 0.1417853890764436,
+      "parameters_excluding_frozen_text_table": 15652560,
+      "config": {
+        "user_num": 290876,
+        "item_num": 116966,
+        "domain_num": 2,
+        "time_dim": 8,
+        "user_dim": 32,
+        "item_dim": 32,
+        "domain_dim": 8,
+        "text_projection_dim": 128,
+        "hidden_dims": [
+          512,
+          256,
+          128,
+          64,
+          32
+        ],
+        "cluster_num": 5,
+        "beta": 0.9,
+        "routing_iterations": 3,
+        "normalize_router_input": false,
+        "use_qwen": true,
+        "use_cross_domain_history": true,
+        "router_use_domain": false
+      },
+      "cluster_counts": [
+        999141,
+        747718,
+        5440,
+        24363,
+        2263338
+      ],
+      "mean_routing_entropy": 1.534983980178833,
+      "domain_cluster_nmi": 0.027915851561514077,
+      "domain_cluster_counts": {
+        "Electronic": [
+          680663,
+          288220,
+          2377,
+          10856,
+          1037884
+        ],
+        "Phone": [
+          318478,
+          459498,
+          3063,
+          13507,
+          1225454
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Electronic": [
+          0.3369618811881188,
+          0.14268316831683167,
+          0.0011767326732673267,
+          0.005374257425742574,
+          0.5138039603960396
+        ],
+        "Phone": [
+          0.15766237623762377,
+          0.22747425742574257,
+          0.0015163366336633664,
+          0.006686633663366337,
+          0.606660396039604
+        ]
+      }
+    },
+    {
+      "experiment": "ADL K=7",
+      "directory": "adl_k7",
+      "model": "adl",
+      "selected_epoch": 1,
+      "validation_macro_NDCG@10": 0.15042660428792604,
+      "test_macro_NDCG@10": 0.14611123659048153,
+      "parameters_excluding_frozen_text_table": 16475920,
+      "config": {
+        "user_num": 290876,
+        "item_num": 116966,
+        "domain_num": 2,
+        "time_dim": 8,
+        "user_dim": 32,
+        "item_dim": 32,
+        "domain_dim": 8,
+        "text_projection_dim": 128,
+        "hidden_dims": [
+          512,
+          256,
+          128,
+          64,
+          32
+        ],
+        "cluster_num": 7,
+        "beta": 0.9,
+        "routing_iterations": 3,
+        "normalize_router_input": false,
+        "use_qwen": true,
+        "use_cross_domain_history": true,
+        "router_use_domain": false
+      },
+      "cluster_counts": [
+        1052106,
+        418870,
+        181016,
+        2357691,
+        4193,
+        6506,
+        19618
+      ],
+      "mean_routing_entropy": 1.9098671245574952,
+      "domain_cluster_nmi": 0.01948137255598885,
+      "domain_cluster_counts": {
+        "Electronic": [
+          643409,
+          168591,
+          133757,
+          1059296,
+          2405,
+          3132,
+          9410
+        ],
+        "Phone": [
+          408697,
+          250279,
+          47259,
+          1298395,
+          1788,
+          3374,
+          10208
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Electronic": [
+          0.3185193069306931,
+          0.08346089108910891,
+          0.06621633663366337,
+          0.5244039603960396,
+          0.0011905940594059406,
+          0.0015504950495049505,
+          0.004658415841584158
+        ],
+        "Phone": [
+          0.20232524752475248,
+          0.12390049504950496,
+          0.023395544554455444,
+          0.6427698019801981,
+          0.0008851485148514851,
+          0.0016702970297029704,
+          0.0050534653465346534
+        ]
+      }
+    },
+    {
+      "experiment": "ADL K=9",
+      "directory": "adl_k9",
+      "model": "adl",
+      "selected_epoch": 2,
+      "validation_macro_NDCG@10": 0.15581231968230833,
+      "test_macro_NDCG@10": 0.15993577141628118,
+      "parameters_excluding_frozen_text_table": 17299280,
+      "config": {
+        "user_num": 290876,
+        "item_num": 116966,
+        "domain_num": 2,
+        "time_dim": 8,
+        "user_dim": 32,
+        "item_dim": 32,
+        "domain_dim": 8,
+        "text_projection_dim": 128,
+        "hidden_dims": [
+          512,
+          256,
+          128,
+          64,
+          32
+        ],
+        "cluster_num": 9,
+        "beta": 0.9,
+        "routing_iterations": 3,
+        "normalize_router_input": false,
+        "use_qwen": true,
+        "use_cross_domain_history": true,
+        "router_use_domain": false
+      },
+      "cluster_counts": [
+        1299621,
+        98883,
+        663519,
+        13265,
+        23135,
+        163638,
+        112334,
+        1661468,
+        4137
+      ],
+      "mean_routing_entropy": 2.118895125579834,
+      "domain_cluster_nmi": 0.1837647471617204,
+      "domain_cluster_counts": {
+        "Electronic": [
+          708754,
+          68969,
+          661001,
+          8526,
+          18874,
+          113807,
+          56466,
+          381099,
+          2504
+        ],
+        "Phone": [
+          590867,
+          29914,
+          2518,
+          4739,
+          4261,
+          49831,
+          55868,
+          1280369,
+          1633
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Electronic": [
+          0.3508683168316832,
+          0.034143069306930694,
+          0.3272282178217822,
+          0.004220792079207921,
+          0.009343564356435644,
+          0.05634009900990099,
+          0.027953465346534652,
+          0.18866287128712872,
+          0.0012396039603960395
+        ],
+        "Phone": [
+          0.29250841584158416,
+          0.014808910891089109,
+          0.0012465346534653466,
+          0.002346039603960396,
+          0.002109405940594059,
+          0.024668811881188118,
+          0.02765742574257426,
+          0.6338460396039604,
+          0.0008084158415841584
+        ]
+      }
+    },
+    {
+      "experiment": "ADL without Qwen",
+      "directory": "adl_without_qwen",
+      "model": "adl",
+      "selected_epoch": 3,
+      "validation_macro_NDCG@10": 0.10437412754187532,
+      "test_macro_NDCG@10": 0.06089011074143148,
+      "parameters_excluding_frozen_text_table": 14702096,
+      "config": {
+        "user_num": 290876,
+        "item_num": 116966,
+        "domain_num": 2,
+        "time_dim": 8,
+        "user_dim": 32,
+        "item_dim": 32,
+        "domain_dim": 8,
+        "text_projection_dim": 128,
+        "hidden_dims": [
+          512,
+          256,
+          128,
+          64,
+          32
+        ],
+        "cluster_num": 3,
+        "beta": 0.9,
+        "routing_iterations": 3,
+        "normalize_router_input": false,
+        "use_qwen": false,
+        "use_cross_domain_history": true,
+        "router_use_domain": false
+      },
+      "cluster_counts": [
+        681630,
+        822270,
+        2536100
+      ],
+      "mean_routing_entropy": 0.32188177843093874,
+      "domain_cluster_nmi": 0.05581245929720649,
+      "domain_cluster_counts": {
+        "Electronic": [
+          383143,
+          628442,
+          1008415
+        ],
+        "Phone": [
+          298487,
+          193828,
+          1527685
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Electronic": [
+          0.18967475247524754,
+          0.311109900990099,
+          0.4992153465346535
+        ],
+        "Phone": [
+          0.14776584158415842,
+          0.09595445544554455,
+          0.756279702970297
+        ]
+      }
+    },
+    {
+      "experiment": "ADL without cross-domain history",
+      "directory": "adl_without_cross_history",
+      "model": "adl",
+      "selected_epoch": 2,
+      "validation_macro_NDCG@10": 0.1430547135082874,
+      "test_macro_NDCG@10": 0.132143911662219,
+      "parameters_excluding_frozen_text_table": 14829200,
+      "config": {
+        "user_num": 290876,
+        "item_num": 116966,
+        "domain_num": 2,
+        "time_dim": 8,
+        "user_dim": 32,
+        "item_dim": 32,
+        "domain_dim": 8,
+        "text_projection_dim": 128,
+        "hidden_dims": [
+          512,
+          256,
+          128,
+          64,
+          32
+        ],
+        "cluster_num": 3,
+        "beta": 0.9,
+        "routing_iterations": 3,
+        "normalize_router_input": false,
+        "use_qwen": true,
+        "use_cross_domain_history": false,
+        "router_use_domain": false
+      },
+      "cluster_counts": [
+        432084,
+        2518498,
+        1089418
+      ],
+      "mean_routing_entropy": 1.0560905570983887,
+      "domain_cluster_nmi": 0.011225671436867394,
+      "domain_cluster_counts": {
+        "Electronic": [
+          179085,
+          1181375,
+          659540
+        ],
+        "Phone": [
+          252999,
+          1337123,
+          429878
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Electronic": [
+          0.0886559405940594,
+          0.5848391089108911,
+          0.3265049504950495
+        ],
+        "Phone": [
+          0.1252470297029703,
+          0.6619420792079208,
+          0.21281089108910892
+        ]
+      }
+    },
+    {
+      "experiment": "ADL router with domain",
+      "directory": "adl_router_with_domain",
+      "model": "adl",
+      "selected_epoch": 1,
+      "validation_macro_NDCG@10": 0.15441720311493354,
+      "test_macro_NDCG@10": 0.15798962335676403,
+      "parameters_excluding_frozen_text_table": 14829200,
+      "config": {
+        "user_num": 290876,
+        "item_num": 116966,
+        "domain_num": 2,
+        "time_dim": 8,
+        "user_dim": 32,
+        "item_dim": 32,
+        "domain_dim": 8,
+        "text_projection_dim": 128,
+        "hidden_dims": [
+          512,
+          256,
+          128,
+          64,
+          32
+        ],
+        "cluster_num": 3,
+        "beta": 0.9,
+        "routing_iterations": 3,
+        "normalize_router_input": false,
+        "use_qwen": true,
+        "use_cross_domain_history": true,
+        "router_use_domain": true
+      },
+      "cluster_counts": [
+        2935336,
+        541098,
+        563566
+      ],
+      "mean_routing_entropy": 1.067201957130432,
+      "domain_cluster_nmi": 0.3208972814876246,
+      "domain_cluster_counts": {
+        "Electronic": [
+          919335,
+          540834,
+          559831
+        ],
+        "Phone": [
+          2016001,
+          264,
+          3735
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Electronic": [
+          0.45511633663366335,
+          0.26773960396039603,
+          0.2771440594059406
+        ],
+        "Phone": [
+          0.998020297029703,
+          0.0001306930693069307,
+          0.001849009900990099
+        ]
+      }
+    }
+  ],
+  "metrics": [
+    {
+      "experiment": "SharedBottom",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.06625,
+      "NDCG@1": 0.06625,
+      "Recall@5": 0.22635,
+      "NDCG@5": 0.1468396276754514,
+      "Recall@10": 0.35535,
+      "NDCG@10": 0.18818933478464925,
+      "Recall@20": 0.54555,
+      "NDCG@20": 0.23605188620065082,
+      "Recall@50": 0.8486,
+      "NDCG@50": 0.29640162007297055
+    },
+    {
+      "experiment": "SharedBottom",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.03095,
+      "NDCG@1": 0.03095,
+      "Recall@5": 0.14375,
+      "NDCG@5": 0.0858180976000449,
+      "Recall@10": 0.2878,
+      "NDCG@10": 0.13175558068422208,
+      "Recall@20": 0.5156,
+      "NDCG@20": 0.18912395027744067,
+      "Recall@50": 0.86465,
+      "NDCG@50": 0.25871280263911306
+    },
+    {
+      "experiment": "ADL K=1",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.0571,
+      "NDCG@1": 0.0571,
+      "Recall@5": 0.2136,
+      "NDCG@5": 0.1355207722207622,
+      "Recall@10": 0.33605,
+      "NDCG@10": 0.17476200213864043,
+      "Recall@20": 0.5235,
+      "NDCG@20": 0.22191312089324,
+      "Recall@50": 0.8329,
+      "NDCG@50": 0.28348693679974385
+    },
+    {
+      "experiment": "ADL K=1",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.03015,
+      "NDCG@1": 0.03015,
+      "Recall@5": 0.14285,
+      "NDCG@5": 0.08525757560547677,
+      "Recall@10": 0.27825,
+      "NDCG@10": 0.12856836500713126,
+      "Recall@20": 0.5023,
+      "NDCG@20": 0.18485560231983417,
+      "Recall@50": 0.8503,
+      "NDCG@50": 0.25437970111646374
+    },
+    {
+      "experiment": "ADL K=3",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.0592,
+      "NDCG@1": 0.0592,
+      "Recall@5": 0.2152,
+      "NDCG@5": 0.1374731959978716,
+      "Recall@10": 0.34935,
+      "NDCG@10": 0.1805295010466646,
+      "Recall@20": 0.53685,
+      "NDCG@20": 0.22772582466100016,
+      "Recall@50": 0.8329,
+      "NDCG@50": 0.2865144479525594
+    },
+    {
+      "experiment": "ADL K=3",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.0324,
+      "NDCG@1": 0.0324,
+      "Recall@5": 0.16235,
+      "NDCG@5": 0.09588894106464337,
+      "Recall@10": 0.31665,
+      "NDCG@10": 0.14535658061217605,
+      "Recall@20": 0.53605,
+      "NDCG@20": 0.20052302616902917,
+      "Recall@50": 0.8584,
+      "NDCG@50": 0.26473394341855305
+    },
+    {
+      "experiment": "ADL K=5",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.04745,
+      "NDCG@1": 0.04745,
+      "Recall@5": 0.18705,
+      "NDCG@5": 0.11664333683413736,
+      "Recall@10": 0.317,
+      "NDCG@10": 0.15836411507387108,
+      "Recall@20": 0.5132,
+      "NDCG@20": 0.2076882421528325,
+      "Recall@50": 0.8247,
+      "NDCG@50": 0.26966063309728416
+    },
+    {
+      "experiment": "ADL K=5",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.02505,
+      "NDCG@1": 0.02505,
+      "Recall@5": 0.1357,
+      "NDCG@5": 0.07830941869673348,
+      "Recall@10": 0.28295,
+      "NDCG@10": 0.12520666307901615,
+      "Recall@20": 0.51605,
+      "NDCG@20": 0.18372489899579683,
+      "Recall@50": 0.85765,
+      "NDCG@50": 0.251905633098761
+    },
+    {
+      "experiment": "ADL K=7",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.05025,
+      "NDCG@1": 0.05025,
+      "Recall@5": 0.19655,
+      "NDCG@5": 0.12342304498219486,
+      "Recall@10": 0.3202,
+      "NDCG@10": 0.16304632439753938,
+      "Recall@20": 0.5055,
+      "NDCG@20": 0.20964753265249336,
+      "Recall@50": 0.81705,
+      "NDCG@50": 0.27153862474620255
+    },
+    {
+      "experiment": "ADL K=7",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.0284,
+      "NDCG@1": 0.0284,
+      "Recall@5": 0.14455,
+      "NDCG@5": 0.08504534816238042,
+      "Recall@10": 0.2825,
+      "NDCG@10": 0.12917614878342368,
+      "Recall@20": 0.49285,
+      "NDCG@20": 0.18204642516193623,
+      "Recall@50": 0.8385,
+      "NDCG@50": 0.2509311594539996
+    },
+    {
+      "experiment": "ADL K=9",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.0496,
+      "NDCG@1": 0.0496,
+      "Recall@5": 0.1979,
+      "NDCG@5": 0.12347816267759508,
+      "Recall@10": 0.3294,
+      "NDCG@10": 0.16568987664007356,
+      "Recall@20": 0.52105,
+      "NDCG@20": 0.21392442810803663,
+      "Recall@50": 0.8252,
+      "NDCG@50": 0.27437499794198156
+    },
+    {
+      "experiment": "ADL K=9",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.03775,
+      "NDCG@1": 0.03775,
+      "Recall@5": 0.17955,
+      "NDCG@5": 0.10759868179293527,
+      "Recall@10": 0.32495,
+      "NDCG@10": 0.1541816661924888,
+      "Recall@20": 0.53585,
+      "NDCG@20": 0.2072289931385943,
+      "Recall@50": 0.858,
+      "NDCG@50": 0.2713927926982912
+    },
+    {
+      "experiment": "ADL without Qwen",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.02235,
+      "NDCG@1": 0.02235,
+      "Recall@5": 0.09535,
+      "NDCG@5": 0.058176407895835315,
+      "Recall@10": 0.1666,
+      "NDCG@10": 0.08104721388653122,
+      "Recall@20": 0.28195,
+      "NDCG@20": 0.10985945637268282,
+      "Recall@50": 0.7511,
+      "NDCG@50": 0.2017606707290964
+    },
+    {
+      "experiment": "ADL without Qwen",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.01085,
+      "NDCG@1": 0.01085,
+      "Recall@5": 0.04755,
+      "NDCG@5": 0.02865585011158556,
+      "Recall@10": 0.0854,
+      "NDCG@10": 0.04073300759633174,
+      "Recall@20": 0.17355,
+      "NDCG@20": 0.06270746515670056,
+      "Recall@50": 0.7796,
+      "NDCG@50": 0.17818220163409543
+    },
+    {
+      "experiment": "ADL without cross-domain history",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.04545,
+      "NDCG@1": 0.04545,
+      "Recall@5": 0.1778,
+      "NDCG@5": 0.11094302993365796,
+      "Recall@10": 0.3066,
+      "NDCG@10": 0.15226645411132603,
+      "Recall@20": 0.49995,
+      "NDCG@20": 0.20082623471081812,
+      "Recall@50": 0.81845,
+      "NDCG@50": 0.2641535796397922
+    },
+    {
+      "experiment": "ADL without cross-domain history",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.02295,
+      "NDCG@1": 0.02295,
+      "Recall@5": 0.12025,
+      "NDCG@5": 0.06997741988371729,
+      "Recall@10": 0.2521,
+      "NDCG@10": 0.11202136921311201,
+      "Recall@20": 0.48155,
+      "NDCG@20": 0.169569151678543,
+      "Recall@50": 0.8411,
+      "NDCG@50": 0.24117594583856494
+    },
+    {
+      "experiment": "ADL router with domain",
+      "domain": "Electronic",
+      "examples": 20000,
+      "Recall@1": 0.0601,
+      "NDCG@1": 0.0601,
+      "Recall@5": 0.2178,
+      "NDCG@5": 0.13922062576106817,
+      "Recall@10": 0.35525,
+      "NDCG@10": 0.1833013535005971,
+      "Recall@20": 0.53815,
+      "NDCG@20": 0.2293131109526617,
+      "Recall@50": 0.8353,
+      "NDCG@50": 0.28839972261165764
+    },
+    {
+      "experiment": "ADL router with domain",
+      "domain": "Phone",
+      "examples": 20000,
+      "Recall@1": 0.03165,
+      "NDCG@1": 0.03165,
+      "Recall@5": 0.1503,
+      "NDCG@5": 0.08950704870441414,
+      "Recall@10": 0.2856,
+      "NDCG@10": 0.13267789321293097,
+      "Recall@20": 0.50735,
+      "NDCG@20": 0.18850325669380424,
+      "Recall@50": 0.8488,
+      "NDCG@50": 0.2566538876464409
+    }
+  ]
+}

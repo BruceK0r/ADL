@@ -1,0 +1,227 @@
+[
+  {
+    "epoch": 1,
+    "train": {
+      "loss": 0.8760034579016627,
+      "contexts": 1777346,
+      "seconds": 36.45149988308549,
+      "cluster_counts": [
+        8886730
+      ],
+      "mean_routing_entropy": 0.0
+    },
+    "validation": {
+      "loss": 1.382685696220398,
+      "contexts": 40000,
+      "seconds": 1.5485325790941715,
+      "macro_NDCG@10": 0.15094124423728794,
+      "ranking": {
+        "Electronic": {
+          "examples": 20000,
+          "Recall@1": 0.05525,
+          "NDCG@1": 0.05525,
+          "Recall@5": 0.20595,
+          "NDCG@5": 0.13076257538638336,
+          "Recall@10": 0.33115,
+          "NDCG@10": 0.17084808789358125,
+          "Recall@20": 0.5065,
+          "NDCG@20": 0.21495520651742964,
+          "Recall@50": 0.81255,
+          "NDCG@50": 0.2757040131678708
+        },
+        "Phone": {
+          "examples": 20000,
+          "Recall@1": 0.03275,
+          "NDCG@1": 0.03275,
+          "Recall@5": 0.14825,
+          "NDCG@5": 0.08921729760170875,
+          "Recall@10": 0.2789,
+          "NDCG@10": 0.13103440058099464,
+          "Recall@20": 0.48595,
+          "NDCG@20": 0.183068690159941,
+          "Recall@50": 0.8305,
+          "NDCG@50": 0.2515742361161977
+        }
+      },
+      "cluster_counts": [
+        4040000
+      ],
+      "mean_routing_entropy": 0.0,
+      "domain_cluster_counts": {
+        "Electronic": [
+          2020000
+        ],
+        "Phone": [
+          2020000
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Electronic": [
+          1.0
+        ],
+        "Phone": [
+          1.0
+        ]
+      },
+      "cluster_domain_fractions": [
+        [
+          0.5
+        ],
+        [
+          0.5
+        ]
+      ],
+      "domain_cluster_nmi": 0.0
+    }
+  },
+  {
+    "epoch": 2,
+    "train": {
+      "loss": 0.6276270412774897,
+      "contexts": 1777346,
+      "seconds": 33.40088654309511,
+      "cluster_counts": [
+        8886730
+      ],
+      "mean_routing_entropy": 0.0
+    },
+    "validation": {
+      "loss": 1.61708346118927,
+      "contexts": 40000,
+      "seconds": 1.4919933304190636,
+      "macro_NDCG@10": 0.14882104667163154,
+      "ranking": {
+        "Electronic": {
+          "examples": 20000,
+          "Recall@1": 0.04895,
+          "NDCG@1": 0.04895,
+          "Recall@5": 0.1934,
+          "NDCG@5": 0.12129065446866116,
+          "Recall@10": 0.31785,
+          "NDCG@10": 0.161246401147049,
+          "Recall@20": 0.49465,
+          "NDCG@20": 0.2057609364800313,
+          "Recall@50": 0.7905,
+          "NDCG@50": 0.264533777564088
+        },
+        "Phone": {
+          "examples": 20000,
+          "Recall@1": 0.0329,
+          "NDCG@1": 0.0329,
+          "Recall@5": 0.1564,
+          "NDCG@5": 0.09326835196133347,
+          "Recall@10": 0.291,
+          "NDCG@10": 0.13639569219621409,
+          "Recall@20": 0.48685,
+          "NDCG@20": 0.1856579651532528,
+          "Recall@50": 0.81615,
+          "NDCG@50": 0.25110272652096094
+        }
+      },
+      "cluster_counts": [
+        4040000
+      ],
+      "mean_routing_entropy": 0.0,
+      "domain_cluster_counts": {
+        "Electronic": [
+          2020000
+        ],
+        "Phone": [
+          2020000
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Electronic": [
+          1.0
+        ],
+        "Phone": [
+          1.0
+        ]
+      },
+      "cluster_domain_fractions": [
+        [
+          0.5
+        ],
+        [
+          0.5
+        ]
+      ],
+      "domain_cluster_nmi": 0.0
+    }
+  },
+  {
+    "epoch": 3,
+    "train": {
+      "loss": 0.3593928322192804,
+      "contexts": 1777346,
+      "seconds": 34.46778508275747,
+      "cluster_counts": [
+        8886730
+      ],
+      "mean_routing_entropy": 0.0
+    },
+    "validation": {
+      "loss": 2.4066465688705443,
+      "contexts": 40000,
+      "seconds": 1.4435386173427105,
+      "macro_NDCG@10": 0.123537684643796,
+      "ranking": {
+        "Electronic": {
+          "examples": 20000,
+          "Recall@1": 0.0402,
+          "NDCG@1": 0.0402,
+          "Recall@5": 0.162,
+          "NDCG@5": 0.10025593023589728,
+          "Recall@10": 0.2747,
+          "NDCG@10": 0.13642131189052026,
+          "Recall@20": 0.45775,
+          "NDCG@20": 0.18240659949861732,
+          "Recall@50": 0.7835,
+          "NDCG@50": 0.24686951402544766
+        },
+        "Phone": {
+          "examples": 20000,
+          "Recall@1": 0.02745,
+          "NDCG@1": 0.02745,
+          "Recall@5": 0.1241,
+          "NDCG@5": 0.07437347895629437,
+          "Recall@10": 0.2377,
+          "NDCG@10": 0.11065405739707174,
+          "Recall@20": 0.4397,
+          "NDCG@20": 0.16123169246539176,
+          "Recall@50": 0.8169,
+          "NDCG@50": 0.23620663317985108
+        }
+      },
+      "cluster_counts": [
+        4040000
+      ],
+      "mean_routing_entropy": 0.0,
+      "domain_cluster_counts": {
+        "Electronic": [
+          2020000
+        ],
+        "Phone": [
+          2020000
+        ]
+      },
+      "domain_cluster_fractions": {
+        "Electronic": [
+          1.0
+        ],
+        "Phone": [
+          1.0
+        ]
+      },
+      "cluster_domain_fractions": [
+        [
+          0.5
+        ],
+        [
+          0.5
+        ]
+      ],
+      "domain_cluster_nmi": 0.0
+    }
+  }
+]
